@@ -8,7 +8,7 @@ import { MobileWhatsAppCta } from "@/components/sections/mobile-whatsapp-cta";
 export const metadata: Metadata = {
   title: "Serviços",
   description:
-    "Conheça os serviços da DigitalMax em Portugal: criação de sites, landing pages, gestão de redes sociais, tráfego pago e SEO local.",
+    "Conheça os serviços da Digital Max em Portugal: criação de sites, landing pages, gestão de redes sociais, tráfego pago e SEO local.",
   alternates: {
     canonical: "https://digitalmax.pt/servicos"
   }
@@ -20,7 +20,7 @@ export default function ServicesPage() {
       <SiteHeader />
       <main id="main-content" className="section-block section-pattern">
         <section className="section-shell">
-          <h1 className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">Serviços da DigitalMax</h1>
+          <h1 className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">Serviços da Digital Max</h1>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 sm:text-lg">
             Estratégia, design e tecnologia para negócios locais em Portugal. Escolha o serviço certo para aumentar
             visibilidade, melhorar presença digital e gerar mais contactos.

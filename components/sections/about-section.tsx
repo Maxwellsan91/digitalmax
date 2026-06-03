@@ -10,8 +10,8 @@ export function AboutSection() {
           <div>
             <SectionTitle
               eyebrow="Sobre"
-              title="Quem está por trás da DigitalMax"
-              description="Nascemos para apoiar pequenos e médios negócios em Portugal a crescer online com clareza e estratégia. Unimos design, marketing e acompanhamento contínuo para que a sua presença digital gere resultados concretos."
+              title="Quem está por trás da Digital Max"
+              description="A Digital Max ajuda negócios em Portugal a ganhar visibilidade online, atrair mais contactos e crescer através de websites, redes sociais e campanhas digitais. Unimos estratégia, design e acompanhamento contínuo para gerar resultados concretos."
             />
             <p className="mt-6 text-xl font-medium text-slate-950">
               Cada negócio é único — e a estratégia também deve ser.

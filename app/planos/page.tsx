@@ -8,7 +8,7 @@ import { MobileWhatsAppCta } from "@/components/sections/mobile-whatsapp-cta";
 export const metadata: Metadata = {
   title: "Planos",
   description:
-    "Conheça os planos da DigitalMax: soluções claras para cada fase do negócio, desde a presença inicial ao crescimento com tráfego pago.",
+    "Conheça os planos da Digital Max: soluções claras para cada fase do negócio, desde a presença inicial ao crescimento com tráfego pago.",
   alternates: {
     canonical: "https://digitalmax.pt/planos"
   }

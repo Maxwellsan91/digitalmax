@@ -10,7 +10,7 @@ import { Reveal } from "@/components/ui/reveal";
 export const metadata: Metadata = {
   title: "Sobre",
   description:
-    "Conheça a DigitalMax, agência digital em Portugal focada em websites, redes sociais, tráfego pago e SEO local para negócios locais.",
+    "Conheça a Digital Max, agência digital em Portugal focada em websites, redes sociais, tráfego pago e SEO local para negócios locais.",
   alternates: {
     canonical: "https://digitalmax.pt/sobre"
   }
@@ -52,14 +52,14 @@ export default function AboutPage() {
               <div>
                 <SectionTitle
                   eyebrow="Sobre"
-                  title="Quem está por trás da DigitalMax"
-                  description="Nascemos para apoiar pequenos e médios negócios em Portugal a crescer online com clareza e estratégia. Unimos design, marketing e acompanhamento contínuo para que a sua presença digital gere resultados concretos."
+                  title="Quem está por trás da Digital Max"
+                  description="A Digital Max ajuda negócios em Portugal a ganhar visibilidade online, atrair mais contactos e crescer através de websites, redes sociais e campanhas digitais."
                 />
                 <p className="mt-6 text-xl font-medium text-slate-950">
                   Cada negócio é único — e a estratégia também deve ser.
                 </p>
                 <p className="mt-4 leading-relaxed text-slate-600">
-                  A DigitalMax foi criada com um propósito claro: dar às pequenas e médias empresas portuguesas
+                  A Digital Max foi criada com um propósito claro: dar às pequenas e médias empresas portuguesas
                   as mesmas ferramentas e estratégias digitais que as grandes marcas utilizam — mas adaptadas à
                   realidade, ao orçamento e aos objetivos de cada negócio local.
                 </p>
@@ -105,7 +105,7 @@ export default function AboutPage() {
               </blockquote>
               <p className="mt-6 leading-relaxed text-slate-600">
                 Acreditamos que cada negócio, independentemente da dimensão, merece uma presença online que transmita
-                confiança, comunique com clareza e gere contactos reais. É isso que a DigitalMax constrói.
+                confiança, comunique com clareza e gere contactos reais. É isso que a Digital Max constrói.
               </p>
             </Reveal>
           </div>

@@ -55,7 +55,7 @@ export function SiteFooter() {
         </p>
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <p>© {currentYear} DigitalMax. Todos os direitos reservados.</p>
+          <p>© {currentYear} Digital Max. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

@@ -1,0 +1,40 @@
+<svg width="256" height="80" viewBox="0 0 256 80" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dm-logo-dark-title">
+  <title id="dm-logo-dark-title">Digital Max</title>
+  <defs>
+    <linearGradient id="dm-logo-dark-bg" x1="4" y1="4" x2="76" y2="76" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06B6D4"/>
+      <stop offset="0.44" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#4F46E5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ── ICON MARK ── -->
+  <rect x="1" y="1" width="78" height="78" rx="21" fill="#06B6D4" fill-opacity="0.18"/>
+  <rect x="4" y="4" width="72" height="72" rx="18" fill="url(#dm-logo-dark-bg)"/>
+  <rect x="4" y="4" width="72" height="38" rx="18" fill="white" fill-opacity="0.09"/>
+  <rect x="4" y="4" width="72" height="72" rx="18" fill="none" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+
+  <rect x="14" y="50" width="13" height="18" rx="3" fill="white" fill-opacity="0.46"/>
+  <rect x="32" y="38" width="13" height="30" rx="3" fill="white" fill-opacity="0.74"/>
+  <rect x="50" y="24" width="13" height="44" rx="3" fill="white"/>
+
+  <polyline points="20.5,50 38.5,38 56.5,24"
+    stroke="white" stroke-opacity="0.38" stroke-width="1.8"
+    fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <circle cx="56.5" cy="19.5" r="7" fill="#BAE6FD" fill-opacity="0.28"/>
+  <circle cx="56.5" cy="19.5" r="4" fill="#BAE6FD" fill-opacity="0.82"/>
+  <circle cx="56.5" cy="19.5" r="2.2" fill="white"/>
+
+  <!-- ── WORDMARK (white theme) ── -->
+  <text
+    x="96" y="43"
+    font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="30" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5">Digital</text>
+
+  <text
+    x="97" y="64"
+    font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="14" font-weight="700" fill="#67E8F9" letter-spacing="4">MAX</text>
+</svg>
+

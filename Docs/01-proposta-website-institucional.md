@@ -9,13 +9,13 @@
 **Data:** [INSERIR DATA]  
 **Validade:** [INSERIR PRAZO]
 
-**DigitalMax**  
+**Digital Max**  
 *Criamos presença online que gera clientes.*
 
 ---
 
-## 2. Apresentação da DigitalMax
-A DigitalMax ajuda pequenos e médios negócios em Portugal a fortalecerem a sua presença online com clareza, profissionalismo e foco em resultados.
+## 2. Apresentação da Digital Max
+A Digital Max ajuda pequenos e médios negócios em Portugal a fortalecerem a sua presença online com clareza, profissionalismo e foco em resultados.
 Criamos soluções digitais que não servem apenas para "estar online", mas para gerar contactos reais e apoiar o crescimento do negócio.
 
 ---
@@ -94,6 +94,6 @@ Forma de pagamento sugerida:
 ---
 
 ## 12. Contactos
-**DigitalMax**  
+**Digital Max**  
 Email: geral@digitalmax.pt  
 WhatsApp: +351XXXXXXXXX

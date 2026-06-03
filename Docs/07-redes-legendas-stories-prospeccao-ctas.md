@@ -18,14 +18,14 @@
 ### Mensagem 1
 Olá, [NOME]. Vi o vosso negócio e achei que podiam ganhar mais visibilidade online com alguns ajustes simples de comunicação e estrutura digital.
 
-Na DigitalMax ajudamos negócios locais em Portugal com websites, redes sociais e SEO local para gerar mais contactos.
+Na Digital Max ajudamos negócios locais em Portugal com websites, redes sociais e SEO local para gerar mais contactos.
 
 Se fizer sentido, posso partilhar uma análise rápida sem compromisso.
 
 ### Mensagem 2
 Olá, [NOME]. Trabalho com pequenos negócios e tenho visto muitos casos em que o serviço é excelente, mas a presença online não transmite esse valor.
 
-Na DigitalMax fazemos diagnósticos práticos para identificar melhorias em site, redes sociais e Google.
+Na Digital Max fazemos diagnósticos práticos para identificar melhorias em site, redes sociais e Google.
 
 Quer que lhe envie um diagnóstico inicial gratuito?
 

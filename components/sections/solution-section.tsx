@@ -13,8 +13,8 @@ export function SolutionSection() {
         <Reveal>
           <SectionTitle
             eyebrow="Solução"
-            title="A DigitalMax cria presença online com estratégia, foco e continuidade"
-            description="Planeamos e executamos o que o seu negócio precisa para ser encontrado e escolhido. Não é só ter um site bonito, é gerar contactos reais."
+            title="A Digital Max cria presença online com estratégia, foco e continuidade"
+            description="Sites, redes sociais e tráfego pago para negócios que querem crescer. Não é só ter um site bonito — é gerar contactos reais todos os meses."
           />
         </Reveal>
 

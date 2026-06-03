@@ -8,7 +8,7 @@ import { MobileWhatsAppCta } from "@/components/sections/mobile-whatsapp-cta";
 export const metadata: Metadata = {
   title: "Como Funciona",
   description:
-    "Descubra como a DigitalMax trabalha: desde o diagnóstico gratuito até ao acompanhamento contínuo, um processo simples e orientado a resultados.",
+    "Descubra como a Digital Max trabalha: desde o diagnóstico gratuito até ao acompanhamento contínuo, um processo simples e orientado a resultados.",
   alternates: {
     canonical: "https://digitalmax.pt/como-funciona"
   }

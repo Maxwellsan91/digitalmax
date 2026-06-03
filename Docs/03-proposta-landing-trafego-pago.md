@@ -9,13 +9,13 @@
 **Data:** [INSERIR DATA]  
 **Validade:** [INSERIR PRAZO]
 
-**DigitalMax**  
+**Digital Max**  
 *Criamos presença online que gera clientes.*
 
 ---
 
-## 2. Apresentação da DigitalMax
-A DigitalMax desenvolve soluções orientadas à captação de contactos, combinando páginas de conversão com campanhas digitais focadas no público certo, mensagem certa e resultado mensurável.
+## 2. Apresentação da Digital Max
+A Digital Max desenvolve soluções orientadas à captação de contactos, combinando páginas de conversão com campanhas digitais focadas no público certo, mensagem certa e resultado mensurável.
 
 ---
 
@@ -93,6 +93,6 @@ Orçamento de anúncios (plataformas): **definido com o cliente**.
 ---
 
 ## 12. Contactos
-**DigitalMax**  
+**Digital Max**  
 Email: geral@digitalmax.pt  
 WhatsApp: +351XXXXXXXXX

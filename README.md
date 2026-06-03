@@ -1,10 +1,10 @@
-# DigitalMax
+# Digital Max
 
-Landing page institucional da **DigitalMax**, preparada para captação de contactos e crescimento orgânico em Google.
+Landing page institucional da **Digital Max**, preparada para captação de contactos e crescimento orgânico em Google.
 
-## Descrição
+## Sobre o Projeto
 
-A DigitalMax é uma agência digital em Portugal focada em websites, redes sociais, tráfego pago e SEO local para pequenos e médios negócios.
+A Digital Max é uma agência digital em Portugal focada em websites, redes sociais, tráfego pago e SEO local para pequenos e médios negócios.
 
 ## Tecnologias usadas
 
@@ -47,7 +47,7 @@ npm run lint
 
 1. Suba o projeto para um repositório Git (GitHub, GitLab ou Bitbucket).
 2. Entre em `vercel.com` e clique em **Add New Project**.
-3. Importe o repositório da DigitalMax.
+3. Importe o repositório da Digital Max.
 4. Mantenha as configurações padrão para Next.js.
 5. Clique em **Deploy**.
 6. (Opcional) Configure domínio personalizado em **Project Settings > Domains**.

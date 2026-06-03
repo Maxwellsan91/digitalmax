@@ -17,8 +17,8 @@ export function LocalPresenceSection() {
             </h2>
 
             <p className="mt-4 max-w-4xl text-lg leading-relaxed text-slate-600">
-              A DigitalMax é uma agência digital em Portugal que apoia negócios locais e empresas de serviços a
-              melhorar a presença online, aparecer melhor nas pesquisas e gerar mais pedidos de contacto.
+              A Digital Max é uma agência digital em Portugal que apoia negócios locais e empresas de serviços a
+              ganhar visibilidade online, atrair mais contactos e crescer através de websites, redes sociais e campanhas digitais.
             </p>
 
             <div className="mt-6 inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700">

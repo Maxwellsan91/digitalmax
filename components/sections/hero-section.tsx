@@ -26,11 +26,11 @@ export function HeroSection() {
             </div>
 
             <h1 className="mt-5 max-w-2xl text-2xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-4xl lg:text-5xl xl:text-6xl">
-              Transforme a sua presença online em mais pedidos de contacto
+              Presença online no máximo nível para o seu negócio
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
-              Do primeiro clique ao pedido de contacto: criamos presença digital clara, profissional e preparada para
-              crescer com o seu negócio.
+              Criamos websites, gerimos redes sociais e campanhas digitais para ajudar negócios em Portugal a atrair
+              mais clientes todos os meses.
             </p>
 
             <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap sm:items-center">

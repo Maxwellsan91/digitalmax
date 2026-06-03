@@ -1,6 +1,6 @@
-# Docs - DigitalMax
+# Docs - Digital Max
 
-Documentos comerciais e materiais de comunicação para uso interno da DigitalMax.
+Documentos comerciais e materiais de comunicação para uso interno da Digital Max.
 
 ## Ficheiros de proposta comercial
 

@@ -12,7 +12,7 @@ Se um potencial cliente entra no seu site ou perfil social e não percebe em seg
 
 ...a decisão é adiada ou perdida.
 
-Na DigitalMax, trabalhamos para simplificar a comunicação e orientar cada visita para uma ação concreta: pedido de contacto.
+Na Digital Max, trabalhamos para simplificar a comunicação e orientar cada visita para uma ação concreta: pedido de contacto.
 
 Presença online sem clareza gera ruído. Presença online com estratégia gera oportunidades.
 
@@ -31,7 +31,7 @@ Quando estes elementos falham, o visitante sai sem agir.
 
 Não se trata apenas de design. Trata-se de conversão.
 
-Na DigitalMax, criamos websites pensados para ajudar negócios reais a receber mais contactos, com uma experiência direta e profissional.
+Na Digital Max, criamos websites pensados para ajudar negócios reais a receber mais contactos, com uma experiência direta e profissional.
 
 ---
 
@@ -45,7 +45,7 @@ Se não há consistência, a perceção é de falta de atividade.
 A boa notícia: não precisa de publicar todos os dias.
 Precisa de comunicar com regularidade, foco e clareza.
 
-Na DigitalMax, ajudamos negócios locais a manter uma presença ativa, coerente e alinhada com objetivos comerciais.
+Na Digital Max, ajudamos negócios locais a manter uma presença ativa, coerente e alinhada com objetivos comerciais.
 
 ---
 
@@ -62,7 +62,7 @@ Exemplo: quando alguém pesquisa
 
 Não é sobre truques. É sobre organização e consistência.
 
-Na DigitalMax, aplicamos SEO local como parte de uma estratégia prática para aumentar visibilidade qualificada.
+Na Digital Max, aplicamos SEO local como parte de uma estratégia prática para aumentar visibilidade qualificada.
 
 ---
 
@@ -77,4 +77,4 @@ Na prática, isso significa:
 - perceber o que funciona
 - corrigir rapidamente o que não funciona
 
-Na DigitalMax, o acompanhamento mensal existe para garantir evolução contínua e mais estabilidade na geração de contactos.
+Na Digital Max, o acompanhamento mensal existe para garantir evolução contínua e mais estabilidade na geração de contactos.

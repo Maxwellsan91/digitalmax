@@ -9,13 +9,13 @@
 **Data:** [INSERIR DATA]  
 **Validade:** [INSERIR PRAZO]
 
-**DigitalMax**  
+**Digital Max**  
 *Criamos presença online que gera clientes.*
 
 ---
 
-## 2. Apresentação da DigitalMax
-A DigitalMax apoia negócios locais em Portugal na construção de uma presença digital consistente, com conteúdo estratégico e visibilidade local reforçada no Google.
+## 2. Apresentação da Digital Max
+A Digital Max apoia negócios locais em Portugal na construção de uma presença digital consistente, com conteúdo estratégico e visibilidade local reforçada no Google.
 
 ---
 
@@ -98,6 +98,6 @@ Recomendação de compromisso inicial: **[INSERIR PRAZO]** para avaliação cons
 ---
 
 ## 12. Contactos
-**DigitalMax**  
+**Digital Max**  
 Email: geral@digitalmax.pt  
 WhatsApp: +351XXXXXXXXX

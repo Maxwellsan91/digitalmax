@@ -22,16 +22,16 @@ const themeInitScript = `
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://digitalmax.pt"),
-  applicationName: "DigitalMax",
+  applicationName: "Digital Max",
   title: {
-    default: "DigitalMax | Sites, Redes Sociais e Tráfego Pago em Portugal",
-    template: "%s | DigitalMax"
+    default: "Digital Max | Sites, Redes Sociais e Tráfego Pago em Portugal",
+    template: "%s | Digital Max"
   },
   description:
-    "A DigitalMax cria websites, gere redes sociais e campanhas digitais para ajudar negócios em Portugal a ganhar presença online e gerar mais clientes.",
-  authors: [{ name: "DigitalMax", url: "https://digitalmax.pt" }],
-  creator: "DigitalMax",
-  publisher: "DigitalMax",
+    "A Digital Max ajuda negócios em Portugal a ganhar visibilidade online, atrair mais contactos e crescer através de websites, redes sociais e campanhas digitais.",
+  authors: [{ name: "Digital Max", url: "https://digitalmax.pt" }],
+  creator: "Digital Max",
+  publisher: "Digital Max",
   keywords: [
     "criação de sites em Portugal",
     "agência digital em Portugal",
@@ -57,11 +57,11 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "DigitalMax | Sites, Redes Sociais e Tráfego Pago em Portugal",
+    title: "Digital Max | Sites, Redes Sociais e Tráfego Pago em Portugal",
     description:
-      "A DigitalMax cria websites, gere redes sociais e campanhas digitais para ajudar negócios em Portugal a ganhar presença online e gerar mais clientes.",
+      "A Digital Max ajuda negócios em Portugal a ganhar visibilidade online, atrair mais contactos e crescer através de websites, redes sociais e campanhas digitais.",
     url: "https://digitalmax.pt",
-    siteName: "DigitalMax",
+    siteName: "Digital Max",
     locale: "pt_PT",
     type: "website",
     images: [
@@ -69,15 +69,15 @@ export const metadata: Metadata = {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "DigitalMax - Criamos presença online que gera clientes"
+        alt: "Digital Max - Criamos presença online que gera clientes"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "DigitalMax | Sites, Redes Sociais e Tráfego Pago em Portugal",
+    title: "Digital Max | Sites, Redes Sociais e Tráfego Pago em Portugal",
     description:
-      "Websites, redes sociais e campanhas digitais para negócios em Portugal ganharem mais visibilidade e clientes.",
+      "Sites, redes sociais e tráfego pago para negócios que querem crescer.",
     images: ["/og-image.svg"]
   },
   icons: {

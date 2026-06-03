@@ -251,12 +251,12 @@ export const serviceOptions: string[] = [
 
 export const faqItems: FaqItem[] = [
   {
-    question: "O que faz a DigitalMax?",
+    question: "O que faz a Digital Max?",
     answer:
-      "A DigitalMax ajuda negócios em Portugal com criação de websites, landing pages, gestão de redes sociais, tráfego pago, SEO local e acompanhamento estratégico."
+      "A Digital Max ajuda negócios em Portugal a ganhar visibilidade online, atrair mais contactos e crescer através de criação de websites, landing pages, gestão de redes sociais, tráfego pago, SEO local e acompanhamento estratégico."
   },
   {
-    question: "A DigitalMax trabalha com negócios em todo Portugal?",
+    question: "A Digital Max trabalha com negócios em todo Portugal?",
     answer:
       "Sim. Trabalhamos remotamente com pequenos e médios negócios em todo o território português, com processos claros e comunicação próxima."
   },
@@ -276,7 +276,7 @@ export const faqItems: FaqItem[] = [
       "Sim. Criamos e gerimos conteúdos com consistência para manter a presença ativa, melhorar posicionamento da marca e aproximar o negócio dos clientes certos."
   },
   {
-    question: "A DigitalMax gere campanhas de tráfego pago?",
+    question: "A Digital Max gere campanhas de tráfego pago?",
     answer:
       "Sim. Planeamos e otimizamos campanhas em Meta Ads e Google Ads com foco em visibilidade, contactos e melhoria contínua dos resultados."
   },

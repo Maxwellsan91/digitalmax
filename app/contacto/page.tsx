@@ -7,7 +7,7 @@ import { MobileWhatsAppCta } from "@/components/sections/mobile-whatsapp-cta";
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Peça um diagnóstico gratuito à DigitalMax. Fale connosco para melhorar a presença online do seu negócio em Portugal.",
+    "Peça um diagnóstico gratuito à Digital Max. Fale connosco para melhorar a presença online do seu negócio em Portugal.",
   alternates: {
     canonical: "https://digitalmax.pt/contacto"
   }

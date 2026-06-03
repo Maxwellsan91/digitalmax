@@ -9,19 +9,19 @@ export function StructuredData() {
       {
         "@type": "Organization",
         "@id": `${siteUrl}/#organization`,
-        name: "DigitalMax",
+        name: "Digital Max",
         url: siteUrl,
         email: "geral@digitalmax.pt",
         telephone: "+351XXXXXXXXX",
         slogan: "Criamos presença online que gera clientes.",
         description:
-          "Agência digital em Portugal especializada em websites, redes sociais, tráfego pago e presença digital para negócios locais."
+          "A Digital Max ajuda negócios em Portugal a ganhar visibilidade online, atrair mais contactos e crescer através de websites, redes sociais e campanhas digitais."
       },
       {
         "@type": "WebSite",
         "@id": `${siteUrl}/#website`,
         url: siteUrl,
-        name: "DigitalMax",
+        name: "Digital Max",
         inLanguage: "pt-PT",
         publisher: {
           "@id": `${siteUrl}/#organization`
@@ -30,7 +30,7 @@ export function StructuredData() {
       {
         "@type": "ProfessionalService",
         "@id": `${siteUrl}/#professional-service`,
-        name: "DigitalMax",
+        name: "Digital Max",
         url: siteUrl,
         areaServed: {
           "@type": "Country",
@@ -102,4 +102,3 @@ export function StructuredData() {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
   );
 }
-

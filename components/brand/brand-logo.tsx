@@ -9,27 +9,55 @@ type BrandLogoProps = {
 
 function LogoMark() {
   return (
-    <span
+    <svg
       aria-hidden="true"
-      className="relative inline-flex h-8 w-8 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-600 shadow-[0_10px_22px_rgba(14,116,144,0.35)]"
+      width="34"
+      height="34"
+      viewBox="0 0 34 34"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="flex-shrink-0 drop-shadow-[0_4px_14px_rgba(14,116,144,0.45)]"
     >
-      <span className="absolute left-[6px] bottom-[6px] h-4 w-[3px] rounded bg-white/95" />
-      <span className="absolute left-[12px] bottom-[6px] h-3 w-[3px] rounded bg-white/95" />
-      <span className="absolute left-[18px] bottom-[6px] h-5 w-[3px] rounded bg-white/95" />
-      <span className="absolute right-[5px] top-[5px] h-[5px] w-[5px] rounded-full bg-cyan-200" />
-      <span className="absolute bottom-[6px] left-[6px] h-[2px] w-[15px] rotate-[-25deg] rounded bg-cyan-100/90" />
-    </span>
+      <defs>
+        <linearGradient id="dm-g" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#06B6D4" />
+          <stop offset="0.44" stopColor="#2563EB" />
+          <stop offset="1" stopColor="#4F46E5" />
+        </linearGradient>
+      </defs>
+      {/* Background */}
+      <rect width="34" height="34" rx="9" fill="url(#dm-g)" />
+      {/* Top glass highlight */}
+      <rect width="34" height="17" rx="9" fill="white" fillOpacity="0.09" />
+      {/* Inner border */}
+      <rect width="34" height="34" rx="9" fill="none" stroke="white" strokeOpacity="0.15" strokeWidth="0.75" />
+      {/* Ascending bars — baseline at y=30 */}
+      <rect x="5"  y="21" width="6" height="9"  rx="1.5" fill="white" fillOpacity="0.46" />
+      <rect x="14" y="15" width="6" height="15" rx="1.5" fill="white" fillOpacity="0.74" />
+      <rect x="23" y="9"  width="6" height="21" rx="1.5" fill="white" />
+      {/* Trend line */}
+      <polyline
+        points="8,21 17,15 26,9"
+        stroke="white" strokeOpacity="0.38" strokeWidth="1.3"
+        fill="none" strokeLinecap="round" strokeLinejoin="round"
+      />
+      {/* Peak glow */}
+      <circle cx="26" cy="6.5" r="3.5" fill="#BAE6FD" fillOpacity="0.3" />
+      {/* Peak dot */}
+      <circle cx="26" cy="6.5" r="2.2" fill="#BAE6FD" fillOpacity="0.85" />
+      <circle cx="26" cy="6.5" r="1.2" fill="white" />
+    </svg>
   );
 }
 
 function LogoText({ theme }: { theme: "light" | "dark" }) {
-  const digitalmaxClass = theme === "dark" ? "text-white" : "text-slate-950";
-  const digitalClass = theme === "dark" ? "text-cyan-300" : "text-cyan-700";
+  const baseClass = theme === "dark" ? "text-white" : "text-slate-950";
+  const accentClass = theme === "dark" ? "text-cyan-300" : "text-cyan-600";
 
   return (
-    <span className="inline-flex items-baseline gap-1.5 leading-none">
-      <span className={`text-lg font-black tracking-tight ${digitalmaxClass}`}>DigitalMax</span>
-      <span className={`text-sm font-semibold tracking-[0.08em] uppercase ${digitalClass}`}>Digital</span>
+    <span className="inline-flex flex-col leading-none">
+      <span className={`text-[17px] font-black tracking-tight leading-[1.15] ${baseClass}`}>Digital</span>
+      <span className={`text-[10px] font-bold tracking-[0.22em] uppercase ${accentClass}`}>Max</span>
     </span>
   );
 }
@@ -57,9 +85,8 @@ export function BrandLogo({ href, variant = "symbol", theme = "light", className
   }
 
   return (
-    <Link href={href} aria-label="DigitalMax" className="inline-flex">
+    <Link href={href} aria-label="Digital Max" className="inline-flex">
       <BrandLogoInner variant={variant} theme={theme} className={className} />
     </Link>
   );
 }
-

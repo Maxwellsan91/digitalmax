@@ -33,7 +33,7 @@ export function FinalCtaSection() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Falar com a DigitalMax no WhatsApp"
+              aria-label="Falar com a Digital Max no WhatsApp"
               className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/20"
             >
               Falar agora no WhatsApp
