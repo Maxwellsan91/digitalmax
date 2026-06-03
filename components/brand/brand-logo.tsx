@@ -55,9 +55,9 @@ function LogoText({ theme }: { theme: "light" | "dark" }) {
   const accentClass = theme === "dark" ? "text-cyan-300" : "text-cyan-600";
 
   return (
-    <span className="inline-flex flex-col leading-none">
-      <span className={`text-[17px] font-black tracking-tight leading-[1.15] ${baseClass}`}>Digital</span>
-      <span className={`text-[10px] font-bold tracking-[0.22em] uppercase ${accentClass}`}>Max</span>
+    <span className="inline-flex items-baseline leading-none">
+      <span className={`text-[17px] font-black tracking-tight ${baseClass}`}>Digital</span>
+      <span className={`text-[17px] font-black tracking-tight ${accentClass}`}>Max</span>
     </span>
   );
 }
