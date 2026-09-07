@@ -1,8 +1,11 @@
+import { t } from "@/lib/i18n";
+import { type LocaleProps } from "@/lib/i18n/routing";
 import { faqItems } from "@/lib/site-data";
 
 const siteUrl = "https://digitalmax.pt";
 
-export function StructuredData() {
+export function StructuredData({ locale = "pt" }: LocaleProps) {
+  const localizedUrl = locale === "en" ? `${siteUrl}/en` : siteUrl;
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -10,19 +13,19 @@ export function StructuredData() {
         "@type": "Organization",
         "@id": `${siteUrl}/#organization`,
         name: "Digital Max",
-        url: siteUrl,
+        url: localizedUrl,
         email: "geral@digitalmax.pt",
         telephone: "+351XXXXXXXXX",
-        slogan: "Criamos presença online que gera clientes.",
+        slogan: t(locale, "Criamos presença online que gera clientes."),
         description:
-          "A Digital Max ajuda negócios em Portugal a ganhar visibilidade online, atrair mais contactos e crescer através de websites, redes sociais e campanhas digitais."
+          t(locale, "A Digital Max ajuda negócios em Portugal a ganhar visibilidade online, atrair mais contactos e crescer através de websites, redes sociais e campanhas digitais.")
       },
       {
         "@type": "WebSite",
-        "@id": `${siteUrl}/#website`,
-        url: siteUrl,
+        "@id": `${localizedUrl}/#website`,
+        url: localizedUrl,
         name: "Digital Max",
-        inLanguage: "pt-PT",
+        inLanguage: locale === "en" ? "en" : "pt-PT",
         publisher: {
           "@id": `${siteUrl}/#organization`
         }
@@ -31,7 +34,7 @@ export function StructuredData() {
         "@type": "ProfessionalService",
         "@id": `${siteUrl}/#professional-service`,
         name: "Digital Max",
-        url: siteUrl,
+        url: localizedUrl,
         areaServed: {
           "@type": "Country",
           name: "Portugal"
@@ -39,11 +42,11 @@ export function StructuredData() {
         email: "geral@digitalmax.pt",
         telephone: "+351XXXXXXXXX",
         description:
-          "Serviços de criação de websites, gestão de redes sociais, tráfego pago, SEO local e presença digital para pequenos e médios negócios em Portugal."
+          t(locale, "Serviços de criação de websites, gestão de redes sociais, tráfego pago, SEO local e presença digital para pequenos e médios negócios em Portugal.")
       },
       {
         "@type": "Service",
-        serviceType: "Criação de websites",
+        serviceType: t(locale, "Criação de websites"),
         provider: { "@id": `${siteUrl}/#organization` },
         areaServed: "Portugal"
       },
@@ -55,19 +58,19 @@ export function StructuredData() {
       },
       {
         "@type": "Service",
-        serviceType: "Gestão de redes sociais",
+        serviceType: t(locale, "Gestão de redes sociais"),
         provider: { "@id": `${siteUrl}/#organization` },
         areaServed: "Portugal"
       },
       {
         "@type": "Service",
-        serviceType: "Tráfego pago",
+        serviceType: t(locale, "Tráfego pago"),
         provider: { "@id": `${siteUrl}/#organization` },
         areaServed: "Portugal"
       },
       {
         "@type": "Service",
-        serviceType: "SEO local",
+        serviceType: t(locale, "SEO local"),
         provider: { "@id": `${siteUrl}/#organization` },
         areaServed: "Portugal"
       },
@@ -79,19 +82,19 @@ export function StructuredData() {
       },
       {
         "@type": "Service",
-        serviceType: "Acompanhamento mensal",
+        serviceType: t(locale, "Acompanhamento mensal"),
         provider: { "@id": `${siteUrl}/#organization` },
         areaServed: "Portugal"
       },
       {
         "@type": "FAQPage",
-        "@id": `${siteUrl}/#faq`,
+        "@id": `${localizedUrl}/#faq`,
         mainEntity: faqItems.map((item) => ({
           "@type": "Question",
-          name: item.question,
+          name: t(locale, item.question),
           acceptedAnswer: {
             "@type": "Answer",
-            text: item.answer
+            text: t(locale, item.answer)
           }
         }))
       }

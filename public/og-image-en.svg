@@ -1,0 +1,31 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Digital Max</title>
+  <desc id="desc">Digital Max - We build an online presence that brings you customers</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B132B"/>
+      <stop offset="1" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="180" y1="130" x2="410" y2="310" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06B6D4"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="24" fill="url(#bg)"/>
+  <circle cx="1040" cy="110" r="150" fill="#06B6D4" fill-opacity="0.15"/>
+  <circle cx="160" cy="540" r="180" fill="#2563EB" fill-opacity="0.14"/>
+
+  <g transform="translate(132 170)">
+    <rect x="0" y="0" width="90" height="90" rx="22" fill="url(#acc)"/>
+    <rect x="23" y="45" width="9" height="24" rx="3" fill="white" fill-opacity="0.95"/>
+    <rect x="40" y="38" width="9" height="31" rx="3" fill="white" fill-opacity="0.95"/>
+    <rect x="57" y="27" width="9" height="42" rx="3" fill="white" fill-opacity="0.95"/>
+    <circle cx="71" cy="19" r="7" fill="#BAE6FD"/>
+    <path d="M23 66L66 29" stroke="#CFFAFE" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <text x="252" y="232" fill="white" font-family="Inter, Arial, sans-serif" font-size="62" font-weight="800" letter-spacing="-0.02em">Digital Max</text>
+  <text x="252" y="292" fill="#CFFAFE" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="500">We build an online presence that brings you customers.</text>
+
+  <text x="132" y="408" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600">Websites • Social Media • Paid Advertising • Local SEO</text>
+</svg>

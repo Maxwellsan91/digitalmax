@@ -1,3 +1,5 @@
+import { t } from "@/lib/i18n";
+import { type LocaleProps } from "@/lib/i18n/routing";
 import type { LucideIcon } from "lucide-react";
 import { ArrowRight } from "lucide-react";
 
@@ -7,7 +9,7 @@ type ServiceCardProps = {
   icon: LucideIcon;
 };
 
-export function ServiceCard({ title, description, icon: Icon }: ServiceCardProps) {
+export function ServiceCard({ locale = "pt", title, description, icon: Icon }: ServiceCardProps & LocaleProps) {
   return (
     <article className="group card-surface relative overflow-hidden">
       <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-cyan-500 to-blue-600" aria-hidden="true" />
@@ -20,10 +22,11 @@ export function ServiceCard({ title, description, icon: Icon }: ServiceCardProps
       <div className="inline-flex rounded-xl bg-slate-900 p-2.5">
         <Icon className="h-5 w-5 text-white" aria-hidden="true" />
       </div>
-      <h3 className="mt-4 text-xl font-semibold text-slate-950">{title}</h3>
-      <p className="mt-3 leading-relaxed text-slate-600">{description}</p>
+      <h3 className="mt-4 text-xl font-semibold text-slate-950">{t(locale, title)}</h3>
+      <p className="mt-3 leading-relaxed text-slate-600">{t(locale, description)}</p>
       <p className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-slate-700 transition group-hover:translate-x-1 group-hover:text-slate-950">
-        Saber mais <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        {t(locale, "Saber mais")}
+        <ArrowRight className="h-4 w-4" aria-hidden="true" />
       </p>
     </article>
   );

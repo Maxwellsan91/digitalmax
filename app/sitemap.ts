@@ -1,46 +1,31 @@
 import type { MetadataRoute } from "next";
 import { blogPosts, servicePages } from "@/lib/content-pages";
+import { languageAlternates, localizedPath } from "@/lib/i18n/routing";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://digitalmax.pt";
   const now = new Date();
-
   const publishedRoutes = [
     { path: "/", changeFrequency: "weekly" as const, priority: 1 },
     { path: "/servicos", changeFrequency: "weekly" as const, priority: 0.9 },
+    { path: "/como-funciona", changeFrequency: "monthly" as const, priority: 0.8 },
+    { path: "/planos", changeFrequency: "monthly" as const, priority: 0.8 },
     { path: "/sobre", changeFrequency: "monthly" as const, priority: 0.7 },
     { path: "/contacto", changeFrequency: "monthly" as const, priority: 0.8 },
-    { path: "/blog", changeFrequency: "weekly" as const, priority: 0.85 }
+    { path: "/blog", changeFrequency: "weekly" as const, priority: 0.85 },
+    ...servicePages.map((service) => ({
+      path: `/servicos/${service.slug}`, changeFrequency: "weekly" as const, priority: 0.8
+    })),
+    ...blogPosts.map((post) => ({
+      path: `/blog/${post.slug}`, changeFrequency: "monthly" as const, priority: 0.72
+    }))
   ];
 
-  // Ativar quando as páginas forem publicadas:
-  // /servicos
-  // /servicos/criacao-de-sites
-  // /servicos/landing-pages
-  // /servicos/gestao-redes-sociais
-  // /servicos/trafego-pago
-  // /servicos/seo-local
-  // /sobre
-  // /contacto
-  // /blog
-
-  const serviceRoutes = servicePages.map((service) => ({
-    path: `/servicos/${service.slug}`,
-    changeFrequency: "weekly" as const,
-    priority: 0.8
-  }));
-
-  const blogRoutes = blogPosts.map((post) => ({
-    path: `/blog/${post.slug}`,
-    changeFrequency: "monthly" as const,
-    priority: 0.72
-  }));
-
-  return [...publishedRoutes, ...serviceRoutes, ...blogRoutes].map((route) => ({
-    url: `${baseUrl}${route.path}`,
+  return publishedRoutes.flatMap((route) => (["pt", "en"] as const).map((locale) => ({
+    url: `${baseUrl}${localizedPath(route.path, locale)}`,
     lastModified: now,
     changeFrequency: route.changeFrequency,
-    priority: route.priority
-  }));
+    priority: route.priority,
+    alternates: { languages: languageAlternates(route.path) }
+  })));
 }
-

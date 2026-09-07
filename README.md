@@ -57,20 +57,23 @@ npm run lint
 ```text
 app/
   globals.css
-  layout.tsx
-  page.tsx
+  (pt)/  # Rotas em português, sem prefixo
+  en/    # Rotas em inglês
   robots.ts
   sitemap.ts
 components/
   brand/
   cards/
   layout/
+  pages/ # Conteúdo partilhado entre idiomas
   sections/
   seo/
   ui/
 lib/
   contact.ts
   site-data.ts
+  i18n/
+  metadata.ts
 public/
   favicon.svg
   og-image.svg
@@ -78,7 +81,7 @@ public/
 
 ## Onde alterar domínio, email e telefone
 
-- **Domínio:** `app/layout.tsx`, `app/robots.ts`, `app/sitemap.ts`, `components/seo/structured-data.tsx`
+- **Domínio:** `lib/metadata.ts`, `lib/i18n/routing.ts`, `lib/i18n/metadata.ts`, `app/robots.ts`, `app/sitemap.ts`, `components/seo/structured-data.tsx`
 - **Email:** `components/sections/contact-form-section.tsx`, `components/layout/site-footer.tsx`, `components/seo/structured-data.tsx`
 - **Telefone/WhatsApp:** `lib/contact.ts`, `components/seo/structured-data.tsx`
 
@@ -86,6 +89,20 @@ public/
 
 - **Copy das secções:** `components/sections/*.tsx`
 - **Serviços, planos, passos, navegação, FAQ e métricas:** `lib/site-data.ts`
+
+## Idiomas
+
+O português continua disponível nas URLs originais. A versão inglesa começa em `/en`, com rotas como `/en/services`, `/en/plans`, `/en/about` e `/en/contact`.
+
+O seletor **PT / EN** no cabeçalho abre a página equivalente no outro idioma, incluindo serviços e artigos. A navegação mantém o idioma pela URL; cada versão é renderizada estaticamente com o atributo `lang`, metadados, canonical e alternates próprios. O sitemap inclui ambos os idiomas.
+
+- **Traduções:** `lib/i18n/en.json`. As chaves são os textos originais em português; ao alterar uma frase, atualize também a chave da tradução.
+- **URLs e slugs equivalentes:** `lib/i18n/routing.ts`.
+- **Páginas partilhadas:** `components/pages/`; os ficheiros em `app/(pt)/` e `app/en/` selecionam o idioma.
+- **Metadados por idioma:** `lib/i18n/metadata.ts`.
+- **Imagens de partilha:** `public/og-image.svg` e `public/og-image-en.svg`.
+
+Para validar: `npm run lint` e `npm run build`. No navegador, teste a troca PT/EN numa página de serviço ou artigo e as mensagens de validação do formulário em `/en/contact`.
 
 ## Arquitetura SEO recomendada (evolução)
 

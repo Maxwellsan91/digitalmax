@@ -1,5 +1,8 @@
 "use client";
 
+import { t } from "@/lib/i18n";
+import { type LocaleProps } from "@/lib/i18n/routing";
+
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -19,7 +22,7 @@ function applyTheme(mode: ThemeMode, withAnimation = false) {
   }
 }
 
-export function ThemeToggle() {
+export function ThemeToggle({ locale = "pt" }: LocaleProps) {
   const [theme, setTheme] = useState<ThemeMode>("light");
   const [mounted, setMounted] = useState(false);
 
@@ -44,7 +47,7 @@ export function ThemeToggle() {
     return (
       <button
         type="button"
-        aria-label="Alternar modo escuro"
+        aria-label={t(locale, "Alternar modo escuro")}
         className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-sm"
       >
         <Moon className="h-4 w-4" />
@@ -56,7 +59,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label={theme === "dark" ? "Ativar modo claro" : "Ativar modo escuro"}
+      aria-label={theme === "dark" ? t(locale, "Ativar modo claro") : t(locale, "Ativar modo escuro")}
       className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-sm transition hover:border-slate-400 hover:text-slate-900 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-500"
     >
       {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}

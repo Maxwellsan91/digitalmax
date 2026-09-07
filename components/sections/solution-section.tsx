@@ -1,3 +1,5 @@
+import { t } from "@/lib/i18n";
+import { type LocaleProps } from "@/lib/i18n/routing";
 import type { LucideIcon } from "lucide-react";
 import { BarChart3, CircleDot, ClipboardList, Megaphone, Rocket, Search, Sparkles } from "lucide-react";
 import { SectionTitle } from "@/components/ui/section-title";
@@ -6,15 +8,15 @@ import { solutionCards } from "@/lib/site-data";
 
 const solutionIcons: LucideIcon[] = [Sparkles, Rocket, Megaphone, BarChart3, Search, CircleDot, ClipboardList];
 
-export function SolutionSection() {
+export function SolutionSection({ locale = "pt" }: LocaleProps) {
   return (
     <section className="section-block section-pattern border-y border-slate-200/80 bg-white">
       <div className="section-shell">
         <Reveal>
           <SectionTitle
-            eyebrow="Solução"
-            title="A Digital Max cria presença online com estratégia, foco e continuidade"
-            description="Sites, redes sociais e tráfego pago para negócios que querem crescer. Não é só ter um site bonito — é gerar contactos reais todos os meses."
+            eyebrow={t(locale, "Solução")}
+            title={t(locale, "A Digital Max cria presença online com estratégia, foco e continuidade")}
+            description={t(locale, "Sites, redes sociais e tráfego pago para negócios que querem crescer. Não é só ter um site bonito — é gerar contactos reais todos os meses.")}
           />
         </Reveal>
 
@@ -27,8 +29,8 @@ export function SolutionSection() {
                   <div className="inline-flex rounded-xl bg-cyan-50 p-2.5">
                     <Icon className="h-5 w-5 text-cyan-700" aria-hidden="true" />
                   </div>
-                  <h3 className="mt-4 text-lg font-semibold text-slate-950">{card.title}</h3>
-                  <p className="mt-2 leading-relaxed text-slate-600">{card.description}</p>
+                  <h3 className="mt-4 text-lg font-semibold text-slate-950">{t(locale, card.title)}</h3>
+                  <p className="mt-2 leading-relaxed text-slate-600">{t(locale, card.description)}</p>
                 </article>
               </Reveal>
             );

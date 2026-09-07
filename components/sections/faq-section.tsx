@@ -1,12 +1,15 @@
 "use client";
 
+import { t } from "@/lib/i18n";
+import { type LocaleProps } from "@/lib/i18n/routing";
+
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { faqItems } from "@/lib/site-data";
 import { SectionTitle } from "@/components/ui/section-title";
 import { Reveal } from "@/components/ui/reveal";
 
-export function FaqSection() {
+export function FaqSection({ locale = "pt" }: LocaleProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -15,8 +18,8 @@ export function FaqSection() {
         <Reveal>
           <SectionTitle
             eyebrow="FAQ"
-            title="Perguntas frequentes"
-            description="Respostas claras para dúvidas comuns sobre websites, redes sociais, tráfego pago e SEO local para negócios em Portugal."
+            title={t(locale, "Perguntas frequentes")}
+            description={t(locale, "Respostas claras para dúvidas comuns sobre websites, redes sociais, tráfego pago e SEO local para negócios em Portugal.")}
           />
         </Reveal>
 
@@ -32,7 +35,7 @@ export function FaqSection() {
                     onClick={() => setOpenIndex(isOpen ? null : index)}
                     className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-slate-50/80 sm:px-6 sm:py-5"
                   >
-                    <span className="text-base font-semibold text-slate-950 sm:text-lg">{item.question}</span>
+                    <span className="text-base font-semibold text-slate-950 sm:text-lg">{t(locale, item.question)}</span>
                     <ChevronDown
                       className={`h-5 w-5 shrink-0 text-slate-500 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
                       aria-hidden="true"
@@ -40,7 +43,7 @@ export function FaqSection() {
                   </button>
                   {isOpen && (
                     <div className="border-t border-slate-200/80 px-5 pb-5 pt-4 sm:px-6">
-                      <p className="leading-relaxed text-slate-600">{item.answer}</p>
+                      <p className="leading-relaxed text-slate-600">{t(locale, item.answer)}</p>
                     </div>
                   )}
                 </article>
