@@ -27,3 +27,10 @@ out
 
 # TypeScript incremental build cache
 *.tsbuildinfo
+
+# Local MCP credentials
+/.codex/config.toml
+
+# Runtime credentials
+.env*
+!.env.example

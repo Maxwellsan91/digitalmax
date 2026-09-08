@@ -256,3 +256,20 @@ http://localhost:3000/robots.txt
 3. Reforçar SEO local (Google Business Profile + páginas orientadas por serviço).
 4. Medir desempenho em Search Console (consultas, CTR, páginas com impressões).
 5. Atualizar conteúdos trimestralmente com base em dados reais.
+
+## Envio do formulário por email
+
+O formulário PT/EN envia `POST /api/contact`. O servidor valida os campos e usa a API Hostinger Email para enviar o pedido da caixa gerida para `geral@digitalmax.pt`. O token nunca é enviado ao navegador. O sucesso só é mostrado após a resposta HTTP 204 da Hostinger; em caso de erro, os dados permanecem preenchidos.
+
+Para configurar noutro ambiente, copie `.env.example` para `.env.local` e preencha:
+
+- `HOSTINGER_EMAIL_TOKEN`: token Hostinger Email com acesso de envio à caixa.
+- `HOSTINGER_EMAIL_MAILBOX_ID`: `resourceId` da caixa `geral@digitalmax.pt`, obtido por `GET https://api.mail.hostinger.com/api/v1/me`.
+
+Na Vercel ou noutro alojamento, configure as mesmas variáveis no ambiente do servidor e publique novamente. A configuração MCP de `.codex/config.toml` é apenas para o assistente; a aplicação utiliza as suas próprias variáveis de ambiente. Ambos os ficheiros locais de credenciais são ignorados pelo Git.
+
+A API de envio documentada não disponibiliza um campo Reply-To. O email do visitante é incluído no corpo do pedido, com indicação do endereço para responder. Os destinatários não podem ser alterados pelo visitante.
+
+O endpoint inclui um campo invisível contra bots, limites de tamanho, verificação de origem e limite de cinco tentativas por IP a cada dez minutos por processo. Em produção, complemente com limitação no proxy/WAF: o contador em memória não é partilhado entre instâncias e pressupõe cabeçalhos de IP definidos pelo proxy de confiança.
+
+Execute `npm test` para validar o endpoint com a Hostinger simulada, sem enviar emails reais. `npm run lint` e `npm run build` validam a aplicação.

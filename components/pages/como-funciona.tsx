@@ -4,7 +4,6 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { ProcessSection } from "@/components/sections/process-section";
 import { FinalCtaSection } from "@/components/sections/final-cta-section";
-import { MobileWhatsAppCta } from "@/components/sections/mobile-whatsapp-cta";
 
 export const metadata: Metadata = {
   title: "Como Funciona",
@@ -23,7 +22,7 @@ export default function HowItWorksPage({ locale = "pt" }: LocaleProps) {
         <ProcessSection locale={locale} />
         <FinalCtaSection locale={locale} />
       </main>
-      <MobileWhatsAppCta locale={locale} />
+
       <SiteFooter locale={locale} />
     </>
   );

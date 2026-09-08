@@ -5,7 +5,6 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { servicePages } from "@/lib/content-pages";
-import { MobileWhatsAppCta } from "@/components/sections/mobile-whatsapp-cta";
 
 export const metadata: Metadata = {
   title: "Serviços",
@@ -43,7 +42,7 @@ export default function ServicesPage({ locale = "pt" }: LocaleProps) {
           </div>
         </section>
       </main>
-      <MobileWhatsAppCta locale={locale} />
+
       <SiteFooter locale={locale} />
     </>
   );

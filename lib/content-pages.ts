@@ -33,7 +33,7 @@ export const servicePages: ServicePage[] = [
       "Estrutura estratégica para serviços e contactos",
       "Design responsivo e performance otimizada",
       "SEO técnico básico pronto para crescer no Google",
-      "Integração de formulário e WhatsApp"
+      "Integração de formulário de contacto"
     ],
     process: [
       "Diagnóstico e alinhamento de objetivos",

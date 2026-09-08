@@ -1,9 +1,7 @@
 import { t } from "@/lib/i18n";
 import { type LocaleProps, localizedPath } from "@/lib/i18n/routing";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
-import { whatsappLink } from "@/lib/contact";
 
 export function FinalCtaSection({ locale = "pt" }: LocaleProps) {
   return (
@@ -30,15 +28,6 @@ export function FinalCtaSection({ locale = "pt" }: LocaleProps) {
             >
               {t(locale, "Receber diagnóstico gratuito")}
             </Button>
-            <Link
-              href={whatsappLink(locale)}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={t(locale, "Falar com a Digital Max no WhatsApp")}
-              className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/20"
-            >
-              {t(locale, "Falar agora no WhatsApp")}
-            </Link>
           </div>
         </Reveal>
       </div>

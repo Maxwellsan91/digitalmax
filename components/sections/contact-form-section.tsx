@@ -3,52 +3,20 @@
 import { t } from "@/lib/i18n";
 import { type LocaleProps } from "@/lib/i18n/routing";
 
-import Link from "next/link";
 import { useMemo, useState } from "react";
-import { ArrowRight, CheckCircle2, MessageCircle, ShieldCheck } from "lucide-react";
+import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
 import { SectionTitle } from "@/components/ui/section-title";
 import { serviceOptions } from "@/lib/site-data";
-import { whatsappLink } from "@/lib/contact";
 
-type ContactFormData = {
-  name: string;
-  company: string;
-  email: string;
-  phone: string;
-  service: string;
-  message: string;
-};
-
-type FormErrors = Partial<Record<keyof ContactFormData, string>>;
-
-const initialData: ContactFormData = {
-  name: "",
-  company: "",
-  email: "",
-  phone: "",
-  service: "",
-  message: ""
-};
-
-function validateForm(data: ContactFormData): FormErrors {
-  const errors: FormErrors = {};
-
-  if (!data.name.trim()) errors.name = "Indique o seu nome.";
-  if (!data.company.trim()) errors.company = "Indique o nome do negócio.";
-  if (!data.email.trim()) errors.email = "Indique o seu email.";
-  if (data.email.trim() && !/^\S+@\S+\.\S+$/.test(data.email)) errors.email = "Introduza um email válido.";
-  if (!data.phone.trim()) errors.phone = "Indique o seu telefone.";
-  if (!data.service.trim()) errors.service = "Escolha o serviço pretendido.";
-  if (!data.message.trim()) errors.message = "Escreva uma mensagem curta com o seu objetivo.";
-
-  return errors;
-}
+import { contactLimits, emptyContactForm, validateContactForm, type ContactFormData, type FormErrors } from "@/lib/contact-form";
 
 export function ContactFormSection({ locale = "pt" }: LocaleProps) {
-  const [formData, setFormData] = useState<ContactFormData>(initialData);
+  const [formData, setFormData] = useState<ContactFormData>(emptyContactForm);
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [website, setWebsite] = useState("");
 
   const hasErrors = useMemo(() => Object.keys(errors).length > 0, [errors]);
 
@@ -66,25 +34,44 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
   }
 
   function handleBlur() {
-    const nextErrors = validateForm(formData);
+    const nextErrors = validateContactForm(formData);
     setErrors(nextErrors);
   }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const nextErrors = validateForm(formData);
+    const nextErrors = validateContactForm(formData);
     setErrors(nextErrors);
 
     if (Object.keys(nextErrors).length > 0) return;
 
+    if (isSubmitting) return;
     setIsSubmitting(true);
+    setSubmitError(null);
 
-    // Preparado para integrar com API Route, Formspree ou Resend.
-    await new Promise((resolve) => setTimeout(resolve, 800));
-
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    setFormData(initialData);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, locale, website })
+      });
+      const result = await response.json();
+      if (!response.ok || result.ok !== true) {
+        if (response.status === 422 && result.errors) setErrors(result.errors);
+        setSubmitError(response.status === 429
+          ? "Fez demasiados pedidos. Aguarde alguns minutos antes de tentar novamente."
+          : "Não foi possível confirmar o envio. Os seus dados foram mantidos. Pode tentar novamente ou contactar-nos por email.");
+        return;
+      }
+      setIsSuccess(true);
+      setFormData(emptyContactForm);
+      setWebsite("");
+      setErrors({});
+    } catch {
+      setSubmitError("Não foi possível confirmar o envio. Os seus dados foram mantidos. Pode tentar novamente ou contactar-nos por email.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   const inputBaseClass =
@@ -101,18 +88,8 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
           />
 
           <div className="mt-8 space-y-3 text-slate-600">
-            <p>Email: geral@digitalmax.pt</p>
+            <p>Email: <a href="mailto:geral@digitalmax.pt" className="underline">geral@digitalmax.pt</a></p>
             <p>Portugal</p>
-            <Link
-              href={whatsappLink(locale)}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={t(locale, "Abrir conversa no WhatsApp com mensagem pré-preenchida")}
-              className="inline-flex items-center gap-2 font-semibold text-cyan-700 transition-colors hover:text-cyan-800"
-            >
-              <MessageCircle className="h-4 w-4" />
-              {t(locale, "Falar no WhatsApp")}
-            </Link>
           </div>
 
           <div className="mt-8 space-y-3 rounded-2xl border border-slate-200 bg-slate-50/90 p-5 text-sm text-slate-700">
@@ -128,10 +105,10 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
 
         <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-5 shadow-[0_14px_34px_rgba(15,23,42,0.08)] sm:p-7">
           {isSuccess ? (
-            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5 text-emerald-900">
+            <div role="status" className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5 text-emerald-900">
               <p className="inline-flex items-center gap-2 text-base font-semibold">
                 <CheckCircle2 className="h-5 w-5" />
-                {t(locale, "Pedido enviado com sucesso (simulação)")}
+                {t(locale, "Pedido enviado com sucesso")}
               </p>
               <p className="mt-2 text-sm">
                 {t(locale, "Obrigado pelo contacto. Em breve iremos falar consigo para entender melhor o seu negócio.")}
@@ -144,24 +121,24 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
                 >
                   {t(locale, "Enviar novo pedido")}
                 </button>
-                <Link
-                  href={whatsappLink(locale)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-full bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800"
-                >
-                  {t(locale, "Falar no WhatsApp")}
-                </Link>
               </div>
             </div>
           ) : (
-            <form noValidate onSubmit={handleSubmit} className="scroll-mt-24">
+            <form noValidate onSubmit={handleSubmit} aria-busy={isSubmitting} className="scroll-mt-24">
+              <div className="hidden" aria-hidden="true">
+                <label>
+                  Website
+                  <input name="website" value={website} onChange={(event) => setWebsite(event.target.value)} tabIndex={-1} autoComplete="off" />
+                </label>
+              </div>
+              <fieldset disabled={isSubmitting}>
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="text-sm font-medium text-slate-700">
                   {t(locale, "Nome")}
                   <input
                     type="text"
                     name="name"
+                    maxLength={contactLimits.name}
                     value={formData.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -177,6 +154,7 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
                   <input
                     type="text"
                     name="company"
+                    maxLength={contactLimits.company}
                     value={formData.company}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -192,6 +170,7 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
                   <input
                     type="email"
                     name="email"
+                    maxLength={contactLimits.email}
                     value={formData.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -207,6 +186,7 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
                   <input
                     type="tel"
                     name="phone"
+                    maxLength={contactLimits.phone}
                     value={formData.phone}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -244,6 +224,7 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
                 {t(locale, "Mensagem")}
                 <textarea
                   name="message"
+                    maxLength={contactLimits.message}
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
@@ -259,6 +240,13 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
                 {t(locale, "Ao enviar, está a pedir um contacto inicial sem compromisso para avaliarmos o seu caso.")}
               </div>
 
+              {submitError ? (
+                <p role="alert" className="mt-4 rounded-xl border border-rose-200 bg-rose-50 p-3 text-sm text-rose-800">
+                  {t(locale, submitError)}{" "}
+                  <a href="mailto:geral@digitalmax.pt" className="underline">geral@digitalmax.pt</a>
+                </p>
+              ) : null}
+
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -269,6 +257,7 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
               </button>
 
               {hasErrors ? <p className="mt-3 text-xs text-rose-600">{t(locale, "Verifique os campos assinalados antes de enviar.")}</p> : null}
+              </fieldset>
             </form>
           )}
         </div>

@@ -196,7 +196,6 @@ export const plans: Plan[] = [
       "Website institucional",
       "Design responsivo",
       "Formulário de contacto",
-      "Botão WhatsApp",
       "SEO básico",
       "Configuração inicial"
     ]
@@ -298,7 +297,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "Como posso pedir uma proposta?",
     answer:
-      "Pode pedir pelo formulário do site ou por WhatsApp. A partir da conversa inicial, preparamos uma proposta ajustada aos objetivos do seu negócio."
+      "Pode pedir pelo formulário do site ou por email. A partir da conversa inicial, preparamos uma proposta ajustada aos objetivos do seu negócio."
   }
 ];
 

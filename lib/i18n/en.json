@@ -380,7 +380,6 @@
   "Resposta em até 1 dia útil.": "A reply within 1 working day.",
   "Análise inicial sem compromisso.": "An initial assessment with no obligation.",
   "Orientação clara, sem linguagem técnica desnecessária.": "Clear guidance in plain language.",
-  "Pedido enviado com sucesso (simulação)": "Request sent successfully (simulation)",
   "Obrigado pelo contacto. Em breve iremos falar consigo para entender melhor o seu negócio.": "Thank you for getting in touch. We will speak with you soon to learn more about your business.",
   "Enviar novo pedido": "Send another request",
   "Nome": "Name",
@@ -443,5 +442,12 @@
   "Acompanhamento mensal": "Monthly support",
   "Alternar modo escuro": "Toggle dark mode",
   "Ativar modo claro": "Switch to light mode",
-  "Ativar modo escuro": "Switch to dark mode"
+  "Ativar modo escuro": "Switch to dark mode",
+  "Pedido enviado com sucesso": "Request sent successfully",
+  "O texto excede o limite permitido.": "The text exceeds the allowed length.",
+  "Introduza um valor válido.": "Please enter a valid value.",
+  "Fez demasiados pedidos. Aguarde alguns minutos antes de tentar novamente.": "You have made too many requests. Please wait a few minutes before trying again.",
+  "Não foi possível confirmar o envio. Os seus dados foram mantidos. Pode tentar novamente ou contactar-nos por email.": "We could not confirm delivery. Your details have been kept. You can try again or contact us by email.",
+  "Integração de formulário de contacto": "Contact form integration",
+  "Pode pedir pelo formulário do site ou por email. A partir da conversa inicial, preparamos uma proposta ajustada aos objetivos do seu negócio.": "You can use the website form or email. Following an initial conversation, we prepare a proposal tailored to your business goals."
 }

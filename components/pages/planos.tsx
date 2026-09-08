@@ -4,7 +4,6 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { PlansSection } from "@/components/sections/plans-section";
 import { FinalCtaSection } from "@/components/sections/final-cta-section";
-import { MobileWhatsAppCta } from "@/components/sections/mobile-whatsapp-cta";
 
 export const metadata: Metadata = {
   title: "Planos",
@@ -23,7 +22,7 @@ export default function PlansPage({ locale = "pt" }: LocaleProps) {
         <PlansSection locale={locale} />
         <FinalCtaSection locale={locale} />
       </main>
-      <MobileWhatsAppCta locale={locale} />
+
       <SiteFooter locale={locale} />
     </>
   );

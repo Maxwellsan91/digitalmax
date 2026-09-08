@@ -2,7 +2,6 @@ import { t } from "@/lib/i18n";
 import { type LocaleProps, localizedPath } from "@/lib/i18n/routing";
 import Link from "next/link";
 import { BrandLogo } from "@/components/brand/brand-logo";
-import { whatsappLink } from "@/lib/contact";
 import { navItems, services } from "@/lib/site-data";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
@@ -45,15 +44,10 @@ export function SiteFooter({ locale = "pt" }: LocaleProps) {
 
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 border-t border-slate-800 px-6 py-6 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
         <p>
-          Portugal · geral@digitalmax.pt ·{" "}
-          <Link
-            href={whatsappLink(locale)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-cyan-300 hover:text-cyan-200"
-          >
-            WhatsApp
-          </Link>
+          Portugal ·{" "}
+          <a href="mailto:geral@digitalmax.pt" className="font-semibold text-cyan-300 hover:text-cyan-200">
+            geral@digitalmax.pt
+          </a>
         </p>
         <div className="flex items-center gap-3">
           <ThemeToggle locale={locale} />

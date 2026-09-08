@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { ContactSection } from "@/components/sections/contact-section";
-import { MobileWhatsAppCta } from "@/components/sections/mobile-whatsapp-cta";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -21,7 +20,7 @@ export default function ContactPage({ locale = "pt" }: LocaleProps) {
       <main id="main-content">
         <ContactSection locale={locale} />
       </main>
-      <MobileWhatsAppCta locale={locale} />
+
       <SiteFooter locale={locale} />
     </>
   );

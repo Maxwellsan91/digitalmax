@@ -11,7 +11,6 @@ import { PlansSection } from "@/components/sections/plans-section";
 import { FaqSection } from "@/components/sections/faq-section";
 import { FinalCtaSection } from "@/components/sections/final-cta-section";
 import { ContactFormSection } from "@/components/sections/contact-form-section";
-import { MobileWhatsAppCta } from "@/components/sections/mobile-whatsapp-cta";
 import { StructuredData } from "@/components/seo/structured-data";
 import { TrustSection } from "@/components/sections/trust-section";
 import { SectionTitle } from "@/components/ui/section-title";
@@ -52,7 +51,7 @@ export default function HomePage({ locale = "pt" }: LocaleProps) {
     <>
       <SiteHeader locale={locale} />
 
-      <main id="main-content" className="mobile-safe-bottom md:pb-0">
+      <main id="main-content">
         <StructuredData locale={locale} />
         <HeroSection locale={locale} />
         <ProblemSection locale={locale} />
@@ -65,7 +64,6 @@ export default function HomePage({ locale = "pt" }: LocaleProps) {
         <ContactFormSection locale={locale} />
       </main>
 
-      <MobileWhatsAppCta locale={locale} />
       <SiteFooter locale={locale} />
     </>
   );

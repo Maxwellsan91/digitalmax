@@ -3,7 +3,6 @@ import { type LocaleProps } from "@/lib/i18n/routing";
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { MobileWhatsAppCta } from "@/components/sections/mobile-whatsapp-cta";
 import { TrustSection } from "@/components/sections/trust-section";
 import { FinalCtaSection } from "@/components/sections/final-cta-section";
 import { SectionTitle } from "@/components/ui/section-title";
@@ -111,7 +110,7 @@ export default function AboutPage({ locale = "pt" }: LocaleProps) {
 
         <FinalCtaSection locale={locale} />
       </main>
-      <MobileWhatsAppCta locale={locale} />
+
       <SiteFooter locale={locale} />
     </>
   );
