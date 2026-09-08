@@ -1,15 +1,17 @@
 import { t } from "@/lib/i18n";
-import { type LocaleProps } from "@/lib/i18n/routing";
+import { type LocaleProps, localizedPath } from "@/lib/i18n/routing";
 import type { LucideIcon } from "lucide-react";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 type ServiceCardProps = {
   title: string;
   description: string;
   icon: LucideIcon;
+  href: string;
 };
 
-export function ServiceCard({ locale = "pt", title, description, icon: Icon }: ServiceCardProps & LocaleProps) {
+export function ServiceCard({ locale = "pt", title, description, icon: Icon, href }: ServiceCardProps & LocaleProps) {
   return (
     <article className="group card-surface relative overflow-hidden">
       <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-cyan-500 to-blue-600" aria-hidden="true" />
@@ -24,11 +26,14 @@ export function ServiceCard({ locale = "pt", title, description, icon: Icon }: S
       </div>
       <h3 className="mt-4 text-xl font-semibold text-slate-950">{t(locale, title)}</h3>
       <p className="mt-3 leading-relaxed text-slate-600">{t(locale, description)}</p>
-      <p className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-slate-700 transition group-hover:translate-x-1 group-hover:text-slate-950">
+      <Link
+        href={localizedPath(href, locale)}
+        className="mt-5 inline-flex min-h-11 items-center gap-1 rounded-lg text-sm font-semibold text-slate-700 transition group-hover:translate-x-1 group-hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2"
+      >
         {t(locale, "Saber mais")}
+        <span className="sr-only">: {t(locale, title)}</span>
         <ArrowRight className="h-4 w-4" aria-hidden="true" />
-      </p>
+      </Link>
     </article>
   );
 }
-

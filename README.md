@@ -50,7 +50,7 @@ npm run lint
 3. Importe o repositório da Digital Max.
 4. Mantenha as configurações padrão para Next.js.
 5. Clique em **Deploy**.
-6. (Opcional) Configure domínio personalizado em **Project Settings > Domains**.
+6. Configure `digitalmax.pt` como domínio principal em **Project Settings > Domains** e redirecione `www.digitalmax.pt` para o domínio principal.
 
 ## Estrutura principal
 
@@ -74,16 +74,16 @@ lib/
   site-data.ts
   i18n/
   metadata.ts
+  site-config.ts
 public/
   favicon.svg
-  og-image.svg
+  og-image.png
 ```
 
-## Onde alterar domínio, email e telefone
+## Onde alterar domínio e email
 
-- **Domínio:** `lib/metadata.ts`, `lib/i18n/routing.ts`, `lib/i18n/metadata.ts`, `app/robots.ts`, `app/sitemap.ts`, `components/seo/structured-data.tsx`
+- **Domínio, nome e descrição base:** `lib/site-config.ts`
 - **Email:** `components/sections/contact-form-section.tsx`, `components/layout/site-footer.tsx`, `components/seo/structured-data.tsx`
-- **Telefone nos dados estruturados:** `components/seo/structured-data.tsx`
 
 ## Onde alterar textos e serviços
 
@@ -100,7 +100,7 @@ O seletor **PT / EN** no cabeçalho abre a página equivalente no outro idioma, 
 - **URLs e slugs equivalentes:** `lib/i18n/routing.ts`.
 - **Páginas partilhadas:** `components/pages/`; os ficheiros em `app/(pt)/` e `app/en/` selecionam o idioma.
 - **Metadados por idioma:** `lib/i18n/metadata.ts`.
-- **Imagens de partilha:** `public/og-image.svg` e `public/og-image-en.svg`.
+- **Imagens de partilha:** `public/og-image.png` e `public/og-image-en.png` (geradas a partir dos SVG correspondentes).
 
 Para validar: `npm run lint` e `npm run build`. No navegador, teste a troca PT/EN numa página de serviço ou artigo e as mensagens de validação do formulário em `/en/contact`.
 
@@ -127,10 +127,22 @@ http://localhost:3000/sitemap.xml
 http://localhost:3000/robots.txt
 ```
 
+## Configuração no Google Search Console
+
+1. Adicionar uma propriedade do tipo **Domínio** para `digitalmax.pt`.
+2. Validar a propriedade através do registo TXT indicado pelo Google no DNS.
+3. Submeter `https://digitalmax.pt/sitemap.xml` na área **Sitemaps**.
+4. Testar `https://digitalmax.pt/robots.txt` e confirmar que a homepage está permitida.
+5. Usar a **Inspeção de URL** em `https://digitalmax.pt`.
+6. Pedir a indexação da homepage depois da publicação desta versão.
+7. Acompanhar a cobertura de indexação e o desempenho de pesquisa no Search Console.
+
+Depois da publicação, validar `https://digitalmax.pt`, `https://digitalmax.pt/sitemap.xml` e `https://digitalmax.pt/robots.txt`. Na homepage, confirmar o title, description, canonical, Open Graph, JSON-LD de `Organization`, `WebSite`, `ProfessionalService` e `FAQPage`, além da ausência de `noindex`. Usar o Google Search Console, Rich Results Test, PageSpeed Insights, Lighthouse e Schema Markup Validator para os testes externos.
+
 ## Checklist SEO pós-publicação
 
-- [ ] Configurar domínio principal
-- [ ] Garantir redirecionamento www/non-www
+- [ ] Configurar `digitalmax.pt` como domínio principal na Vercel
+- [ ] Garantir redirecionamento de `www.digitalmax.pt` para `digitalmax.pt`
 - [ ] Garantir HTTPS
 - [ ] Submeter sitemap no Google Search Console
 - [ ] Validar `robots.txt`
@@ -141,9 +153,7 @@ http://localhost:3000/robots.txt
 - [ ] Configurar Google Search Console
 - [ ] Verificar indexação de páginas
 - [ ] Criar primeiros conteúdos de blog
-- [ ] Criar páginas individuais de serviço
 - [ ] Rever titles e descriptions após primeiros dados
-- [ ] Configurar formulário real
 - [ ] Configurar eventos de conversão
 
 ## Estratégia inicial de conteúdo SEO (blog)

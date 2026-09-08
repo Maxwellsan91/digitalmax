@@ -155,17 +155,6 @@ button {
     linear-gradient(180deg, #0b1220 0%, #111827 100%);
 }
 
-.reveal-up {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
-}
-
-.reveal-up[data-visible="true"] {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .float-slow {
   animation: float-slow 6s ease-in-out infinite;
 }
@@ -195,7 +184,6 @@ button {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal-up,
   .float-slow,
   .pulse-soft,
   .card-surface,
@@ -305,4 +293,3 @@ html.dark input::placeholder,
 html.dark textarea::placeholder {
   color: #94a3b8;
 }
-

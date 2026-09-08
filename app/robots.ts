@@ -1,15 +1,15 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site-config";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/", "/private/"]
+        allow: "/"
       }
     ],
-    sitemap: "https://www.digitalmax.pt/sitemap.xml",
-    host: "https://www.digitalmax.pt"
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL
   };
 }

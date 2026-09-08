@@ -48,9 +48,9 @@ export function ThemeToggle({ locale = "pt" }: LocaleProps) {
       <button
         type="button"
         aria-label={t(locale, "Alternar modo escuro")}
-        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-sm"
+        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2"
       >
-        <Moon className="h-4 w-4" />
+        <Moon className="h-4 w-4" aria-hidden="true" />
       </button>
     );
   }
@@ -60,10 +60,9 @@ export function ThemeToggle({ locale = "pt" }: LocaleProps) {
       type="button"
       onClick={toggleTheme}
       aria-label={theme === "dark" ? t(locale, "Ativar modo claro") : t(locale, "Ativar modo escuro")}
-      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-sm transition hover:border-slate-400 hover:text-slate-900 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-500"
+      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-sm transition hover:border-slate-400 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-500"
     >
-      {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+      {theme === "dark" ? <Sun className="h-4 w-4" aria-hidden="true" /> : <Moon className="h-4 w-4" aria-hidden="true" />}
     </button>
   );
 }
-

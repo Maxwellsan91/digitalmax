@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { blogPosts, getBlogPostBySlug } from "@/lib/content-pages";
+import { SITE_URL } from "@/lib/site-config";
 
 type BlogPageProps = {
   params: Promise<{ slug: string }>;
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
     title: post.seoTitle,
     description: post.seoDescription,
     alternates: {
-      canonical: `https://www.digitalmax.pt/blog/${slug}`
+      canonical: `${SITE_URL}/blog/${slug}`
     }
   };
 }

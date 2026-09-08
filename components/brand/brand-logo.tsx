@@ -85,7 +85,7 @@ export function BrandLogo({ href, variant = "symbol", theme = "light", className
   }
 
   return (
-    <Link href={href} aria-label="Digital Max" className="inline-flex">
+    <Link href={href} aria-label="Digital Max" className="inline-flex rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2">
       <BrandLogoInner variant={variant} theme={theme} className={className} />
     </Link>
   );

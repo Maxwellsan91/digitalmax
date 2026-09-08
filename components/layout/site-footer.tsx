@@ -24,7 +24,7 @@ export function SiteFooter({ locale = "pt" }: LocaleProps) {
           <ul className="space-y-2 text-sm text-slate-300">
             {quickLinks.map((link) => (
               <li key={link.href}>
-                <Link href={localizedPath(link.href, locale)} className="transition-colors hover:text-white">
+                <Link href={localizedPath(link.href, locale)} className="rounded-sm transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">
                   {t(locale, link.label)}
                 </Link>
               </li>
@@ -45,7 +45,7 @@ export function SiteFooter({ locale = "pt" }: LocaleProps) {
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 border-t border-slate-800 px-6 py-6 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
         <p>
           Portugal ·{" "}
-          <a href="mailto:geral@digitalmax.pt" className="font-semibold text-cyan-300 hover:text-cyan-200">
+          <a href="mailto:geral@digitalmax.pt" className="rounded-sm font-semibold text-cyan-300 hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">
             geral@digitalmax.pt
           </a>
         </p>
@@ -57,4 +57,3 @@ export function SiteFooter({ locale = "pt" }: LocaleProps) {
     </footer>
   );
 }
-

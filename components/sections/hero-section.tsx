@@ -1,17 +1,22 @@
 import { t } from "@/lib/i18n";
 import { type LocaleProps, localizedPath } from "@/lib/i18n/routing";
-import { ArrowUpRight, LineChart } from "lucide-react";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Globe2, Megaphone, MonitorSmartphone, Search } from "lucide-react";
 import { BrandLogo } from "@/components/brand/brand-logo";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
-import { heroDashboardStats, heroGrowthBars } from "@/lib/site-data";
 
 const heroTrustItems = [
   "Foco em negócios locais",
   "Websites, redes sociais e campanhas",
   "Diagnóstico gratuito",
   "Estratégia orientada a contactos"
+];
+
+const growthPlanItems = [
+  { title: "Website", description: "Profissional e rápido", icon: MonitorSmartphone },
+  { title: "Redes sociais", description: "Conteúdo consistente", icon: Globe2 },
+  { title: "Tráfego pago", description: "Campanhas direcionadas", icon: Megaphone },
+  { title: "SEO local", description: "Mais visibilidade", icon: Search }
 ];
 
 export function HeroSection({ locale = "pt" }: LocaleProps) {
@@ -28,7 +33,7 @@ export function HeroSection({ locale = "pt" }: LocaleProps) {
             </div>
 
             <h1 className="mt-5 max-w-2xl text-2xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-4xl lg:text-5xl xl:text-6xl">
-              {t(locale, "Presença online no máximo nível para o seu negócio")}
+              {t(locale, "Presença online que gera clientes para negócios em Portugal")}
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
               {t(locale, "Criamos websites, gerimos redes sociais e campanhas digitais para ajudar negócios em Portugal a atrair mais clientes todos os meses.")}
@@ -63,44 +68,24 @@ export function HeroSection({ locale = "pt" }: LocaleProps) {
             <div className="absolute bottom-8 -left-7 h-20 w-20 rounded-full border border-blue-300/40 float-slow" aria-hidden="true" />
 
             <div className="rounded-2xl border border-slate-200/80 bg-white/95 p-4 sm:p-5">
-              <div className="flex items-center justify-between">
-                <p className="text-sm font-semibold text-slate-800">{t(locale, "Dashboard de crescimento")}</p>
-                <div className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-1 text-xs font-semibold text-emerald-700">
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                  {t(locale, "+24% mensal")}
-                </div>
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <p className="text-sm font-semibold text-slate-800">{t(locale, "Plano de crescimento digital")}</p>
+                <span className="rounded-full bg-cyan-50 px-2.5 py-1 text-xs font-semibold text-cyan-700">
+                  {t(locale, "Estratégia personalizada")}
+                </span>
               </div>
 
               <div className="mt-4 grid grid-cols-2 gap-3">
-                {heroDashboardStats.map((item) => (
-                  <div key={item.label} className="rounded-xl border border-slate-200 bg-white p-3">
-                    <p className="text-xs font-medium uppercase tracking-[0.08em] text-slate-500">{t(locale, item.label)}</p>
-                    <p className="mt-1 text-2xl font-semibold text-slate-950">{t(locale, item.value)}</p>
-                    <p className={`mt-1 text-xs font-semibold ${item.positive ? "text-emerald-600" : "text-slate-500"}`}>
-                      {t(locale, item.change)}
-                    </p>
+                {growthPlanItems.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                  <div key={item.title} className="rounded-xl border border-slate-200 bg-white p-4">
+                    <Icon className="h-5 w-5 text-cyan-700" aria-hidden="true" />
+                    <p className="mt-3 text-sm font-semibold text-slate-950">{t(locale, item.title)}</p>
+                    <p className="mt-1 text-xs leading-relaxed text-slate-500">{t(locale, item.description)}</p>
                   </div>
-                ))}
-              </div>
-
-              <div className="mt-5 rounded-xl border border-slate-200 bg-slate-50 p-3">
-                <div className="mb-2 flex items-center justify-between">
-                  <p className="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">{t(locale, "Crescimento mensal")}</p>
-                  <LineChart className="h-4 w-4 text-cyan-600" aria-hidden="true" />
-                </div>
-                <div className="grid grid-cols-6 items-end gap-2">
-                  {heroGrowthBars.map((bar) => (
-                    <div key={bar.month} className="flex flex-col items-center gap-1">
-                      <div className="flex h-20 w-full items-end rounded-md bg-slate-200/70 p-1">
-                        <div
-                          className="w-full rounded bg-gradient-to-t from-cyan-500 to-blue-600 transition-all duration-500"
-                          style={{ height: `${bar.value}%` }}
-                        />
-                      </div>
-                      <span className="text-[10px] font-medium text-slate-500">{t(locale, bar.month)}</span>
-                    </div>
-                  ))}
-                </div>
+                  );
+                })}
               </div>
             </div>
 

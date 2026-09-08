@@ -6,10 +6,14 @@ import { trustPoints } from "@/lib/site-data";
 
 const trustIcons: LucideIcon[] = [ShieldCheck, TrendingUp, Sparkles, BarChart3, LineChart, Rocket];
 
-export function TrustSection({ locale = "pt" }: LocaleProps) {
+type TrustSectionProps = LocaleProps & { headingLevel?: "h2" | "h3" };
+
+export function TrustSection({ locale = "pt", headingLevel = "h3" }: TrustSectionProps) {
+  const Heading = headingLevel;
+
   return (
     <div className="rounded-3xl border border-slate-200 bg-slate-50/90 p-7 shadow-[0_10px_28px_rgba(15,23,42,0.07)]">
-      <h3 className="text-2xl font-semibold text-slate-950">{t(locale, "Pronto para construir os seus próximos resultados?")}</h3>
+      <Heading className="text-2xl font-semibold text-slate-950">{t(locale, "Pronto para construir os seus próximos resultados?")}</Heading>
       <p className="mt-3 leading-relaxed text-slate-600">
         {t(locale, "Trabalhamos lado a lado com negócios locais que querem crescer com consistência, tecnologia e decisões bem orientadas.")}
       </p>

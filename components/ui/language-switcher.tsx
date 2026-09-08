@@ -17,7 +17,7 @@ export function LanguageSwitcher({ locale }: { locale: Locale }) {
           lang={language === "pt" ? "pt-PT" : "en"}
           aria-label={language === "pt" ? "Português" : "English"}
           aria-current={locale === language ? "page" : undefined}
-          className={`rounded-full px-2 py-2 transition ${locale === language ? "bg-slate-950 text-white dark:bg-cyan-300 dark:text-slate-950" : "text-slate-600 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"}`}
+          className={`inline-flex min-h-10 min-w-10 items-center justify-center rounded-full px-2 py-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 ${locale === language ? "bg-slate-950 text-white dark:bg-cyan-300 dark:text-slate-950" : "text-slate-600 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"}`}
         >
           {language.toUpperCase()}
         </Link>

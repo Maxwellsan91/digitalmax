@@ -5,13 +5,14 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { blogPosts } from "@/lib/content-pages";
+import { SITE_URL } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Blog",
   description:
     "Artigos sobre websites, SEO local, redes sociais e tráfego pago para pequenos e médios negócios em Portugal.",
   alternates: {
-    canonical: "https://www.digitalmax.pt/blog"
+    canonical: `${SITE_URL}/blog`
   }
 };
 
@@ -34,9 +35,9 @@ export default function BlogPage({ locale = "pt" }: LocaleProps) {
                 <p className="mt-3 text-slate-600">{t(locale, post.seoDescription)}</p>
                 <Link
                   href={localizedPath(`/blog/${post.slug}`, locale)}
-                  className="mt-5 inline-flex items-center rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 transition hover:border-slate-500"
+                  className="mt-5 inline-flex min-h-11 items-center rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 transition hover:border-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2"
                 >
-                  {t(locale, "Ler artigo")}
+                  {t(locale, "Ler artigo")}<span className="sr-only">: {t(locale, post.title)}</span>
                 </Link>
               </article>
             ))}

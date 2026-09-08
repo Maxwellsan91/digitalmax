@@ -10,7 +10,9 @@ import { serviceOptions } from "@/lib/site-data";
 
 import { contactLimits, emptyContactForm, validateContactForm, type ContactFormData, type FormErrors } from "@/lib/contact-form";
 
-export function ContactFormSection({ locale = "pt" }: LocaleProps) {
+type ContactFormSectionProps = LocaleProps & { asPage?: boolean };
+
+export function ContactFormSection({ locale = "pt", asPage = false }: ContactFormSectionProps) {
   const [formData, setFormData] = useState<ContactFormData>(emptyContactForm);
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -75,7 +77,7 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
   }
 
   const inputBaseClass =
-    "mt-1 w-full rounded-xl border bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-cyan-500";
+    "mt-1 w-full rounded-xl border bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-cyan-500 focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2";
 
   return (
     <section id="contacto" className="section-block section-pattern border-t border-slate-200/80 bg-white">
@@ -85,6 +87,7 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
             eyebrow={t(locale, "Contacto")}
             title={t(locale, "Fale connosco e receba um plano claro para crescer online")}
             description={t(locale, "Conte-nos um pouco sobre o seu negócio. Vamos analisar a sua presença online e indicar os próximos passos com clareza.")}
+            headingLevel={asPage ? "h1" : "h2"}
           />
 
           <div className="mt-8 space-y-3 text-slate-600">
@@ -107,7 +110,7 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
           {isSuccess ? (
             <div role="status" className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5 text-emerald-900">
               <p className="inline-flex items-center gap-2 text-base font-semibold">
-                <CheckCircle2 className="h-5 w-5" />
+                <CheckCircle2 className="h-5 w-5" aria-hidden="true" />
                 {t(locale, "Pedido enviado com sucesso")}
               </p>
               <p className="mt-2 text-sm">
@@ -117,13 +120,13 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
                 <button
                   type="button"
                   onClick={() => setIsSuccess(false)}
-                  className="inline-flex items-center rounded-full border border-emerald-300 bg-white px-4 py-2 text-sm font-semibold text-emerald-900 hover:bg-emerald-100"
+                  className="inline-flex min-h-11 items-center rounded-full border border-emerald-300 bg-white px-4 py-2 text-sm font-semibold text-emerald-900 hover:bg-emerald-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2"
                 >
                   {t(locale, "Enviar novo pedido")}
                 </button>
                 <a
                   href="mailto:geral@digitalmax.pt"
-                  className="inline-flex items-center rounded-full bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800"
+                  className="inline-flex min-h-11 items-center rounded-full bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2"
                 >
                   {t(locale, "Contactar por email")}
                 </a>
@@ -143,75 +146,94 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
                   {t(locale, "Nome")}
                   <input
                     type="text"
+                    id="contact-name"
                     name="name"
+                    autoComplete="name"
+                    required
                     maxLength={contactLimits.name}
                     value={formData.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     placeholder={t(locale, "Como se chama?")}
                     aria-invalid={Boolean(errors.name)}
+                    aria-describedby={errors.name ? "contact-name-error" : undefined}
                     className={`${inputBaseClass} ${errors.name ? "border-rose-400" : "border-slate-300"}`}
                   />
-                  {errors.name ? <span className="mt-1 block text-xs text-rose-600">{t(locale, errors.name)}</span> : null}
+                  {errors.name ? <span id="contact-name-error" className="mt-1 block text-xs text-rose-600">{t(locale, errors.name)}</span> : null}
                 </label>
 
                 <label className="text-sm font-medium text-slate-700">
                   {t(locale, "Empresa")}
                   <input
                     type="text"
+                    id="contact-company"
                     name="company"
+                    autoComplete="organization"
+                    required
                     maxLength={contactLimits.company}
                     value={formData.company}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     placeholder={t(locale, "Nome do negócio")}
                     aria-invalid={Boolean(errors.company)}
+                    aria-describedby={errors.company ? "contact-company-error" : undefined}
                     className={`${inputBaseClass} ${errors.company ? "border-rose-400" : "border-slate-300"}`}
                   />
-                  {errors.company ? <span className="mt-1 block text-xs text-rose-600">{t(locale, errors.company)}</span> : null}
+                  {errors.company ? <span id="contact-company-error" className="mt-1 block text-xs text-rose-600">{t(locale, errors.company)}</span> : null}
                 </label>
 
                 <label className="text-sm font-medium text-slate-700">
                   Email
                   <input
                     type="email"
+                    id="contact-email"
                     name="email"
+                    autoComplete="email"
+                    required
                     maxLength={contactLimits.email}
                     value={formData.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     placeholder={t(locale, "nome@empresa.pt")}
                     aria-invalid={Boolean(errors.email)}
+                    aria-describedby={errors.email ? "contact-email-error" : undefined}
                     className={`${inputBaseClass} ${errors.email ? "border-rose-400" : "border-slate-300"}`}
                   />
-                  {errors.email ? <span className="mt-1 block text-xs text-rose-600">{t(locale, errors.email)}</span> : null}
+                  {errors.email ? <span id="contact-email-error" className="mt-1 block text-xs text-rose-600">{t(locale, errors.email)}</span> : null}
                 </label>
 
                 <label className="text-sm font-medium text-slate-700">
                   {t(locale, "Telefone")}
                   <input
                     type="tel"
+                    id="contact-phone"
                     name="phone"
+                    autoComplete="tel"
+                    required
                     maxLength={contactLimits.phone}
                     value={formData.phone}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     placeholder={t(locale, "Número de contacto")}
                     aria-invalid={Boolean(errors.phone)}
+                    aria-describedby={errors.phone ? "contact-phone-error" : undefined}
                     className={`${inputBaseClass} ${errors.phone ? "border-rose-400" : "border-slate-300"}`}
                   />
-                  {errors.phone ? <span className="mt-1 block text-xs text-rose-600">{t(locale, errors.phone)}</span> : null}
+                  {errors.phone ? <span id="contact-phone-error" className="mt-1 block text-xs text-rose-600">{t(locale, errors.phone)}</span> : null}
                 </label>
               </div>
 
               <label className="mt-4 block text-sm font-medium text-slate-700">
                 {t(locale, "Serviço pretendido")}
                 <select
+                  id="contact-service"
                   name="service"
+                  required
                   value={formData.service}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   aria-invalid={Boolean(errors.service)}
+                  aria-describedby={errors.service ? "contact-service-error" : undefined}
                   className={`${inputBaseClass} ${errors.service ? "border-rose-400" : "border-slate-300"}`}
                 >
                   <option value="" disabled>
@@ -223,26 +245,29 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
                     </option>
                   ))}
                 </select>
-                {errors.service ? <span className="mt-1 block text-xs text-rose-600">{t(locale, errors.service)}</span> : null}
+                {errors.service ? <span id="contact-service-error" className="mt-1 block text-xs text-rose-600">{t(locale, errors.service)}</span> : null}
               </label>
 
               <label className="mt-4 block text-sm font-medium text-slate-700">
                 {t(locale, "Mensagem")}
                 <textarea
+                  id="contact-message"
                   name="message"
-                    maxLength={contactLimits.message}
+                  required
+                  maxLength={contactLimits.message}
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder={t(locale, "Explique brevemente os seus objetivos para recebermos uma orientação mais útil.")}
                   aria-invalid={Boolean(errors.message)}
+                  aria-describedby={errors.message ? "contact-message-error" : "contact-message-help"}
                   className={`${inputBaseClass} ${errors.message ? "border-rose-400" : "border-slate-300"}`}
                 />
-                {errors.message ? <span className="mt-1 block text-xs text-rose-600">{t(locale, errors.message)}</span> : null}
+                {errors.message ? <span id="contact-message-error" className="mt-1 block text-xs text-rose-600">{t(locale, errors.message)}</span> : null}
               </label>
 
-              <div className="mt-3 text-xs text-slate-500">
+              <div id="contact-message-help" className="mt-3 text-xs text-slate-500">
                 {t(locale, "Ao enviar, está a pedir um contacto inicial sem compromisso para avaliarmos o seu caso.")}
               </div>
 
@@ -256,10 +281,10 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+                className="mt-6 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
               >
                 {isSubmitting ? t(locale, "A enviar...") : t(locale, "Pedir diagnóstico gratuito")}
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </button>
 
               {hasErrors ? <p className="mt-3 text-xs text-rose-600">{t(locale, "Verifique os campos assinalados antes de enviar.")}</p> : null}

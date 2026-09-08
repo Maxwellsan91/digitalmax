@@ -5,9 +5,12 @@ import { CheckCircle2, Gauge } from "lucide-react";
 
 type PlanCardProps = {
   plan: Plan;
+  headingLevel?: "h2" | "h3";
 };
 
-export function PlanCard({ locale = "pt", plan }: PlanCardProps & LocaleProps) {
+export function PlanCard({ locale = "pt", plan, headingLevel = "h3" }: PlanCardProps & LocaleProps) {
+  const Heading = headingLevel;
+
   return (
     <article
       className={`relative h-full rounded-3xl border p-5 transition duration-300 sm:p-7 ${
@@ -23,7 +26,7 @@ export function PlanCard({ locale = "pt", plan }: PlanCardProps & LocaleProps) {
       ) : null}
 
       <div className="flex items-start justify-between gap-3">
-        <h3 className="text-2xl font-semibold">{t(locale, plan.name)}</h3>
+        <Heading className="text-2xl font-semibold">{t(locale, plan.name)}</Heading>
         <Gauge className={`h-5 w-5 ${plan.highlighted ? "text-cyan-300" : "text-cyan-700"}`} aria-hidden="true" />
       </div>
       <p className={`mt-4 leading-relaxed ${plan.highlighted ? "text-slate-200" : "text-slate-600"}`}>{t(locale, plan.audience)}</p>
@@ -48,4 +51,3 @@ export function PlanCard({ locale = "pt", plan }: PlanCardProps & LocaleProps) {
     </article>
   );
 }
-

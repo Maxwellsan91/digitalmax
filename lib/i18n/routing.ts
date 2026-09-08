@@ -1,3 +1,5 @@
+import { SITE_URL } from "@/lib/site-config";
+
 export type Locale = "pt" | "en";
 export type LocaleProps = { locale?: Locale };
 
@@ -57,8 +59,8 @@ export function localizedPath(href: string, locale: Locale): string {
 
 export function languageAlternates(path: string) {
   return {
-    "pt-PT": `https://www.digitalmax.pt${localizedPath(path, "pt")}`,
-    en: `https://www.digitalmax.pt${localizedPath(path, "en")}`,
-    "x-default": `https://www.digitalmax.pt${localizedPath(path, "pt")}`
+    "pt-PT": `${SITE_URL}${localizedPath(path, "pt")}`,
+    en: `${SITE_URL}${localizedPath(path, "en")}`,
+    "x-default": `${SITE_URL}${localizedPath(path, "pt")}`
   };
 }

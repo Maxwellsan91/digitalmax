@@ -15,6 +15,7 @@ import { StructuredData } from "@/components/seo/structured-data";
 import { TrustSection } from "@/components/sections/trust-section";
 import { SectionTitle } from "@/components/ui/section-title";
 import { Reveal } from "@/components/ui/reveal";
+import { LocalPresenceSection } from "@/components/sections/local-presence-section";
 
 function AboutSummarySection({ locale = "pt" }: LocaleProps) {
   return (
@@ -32,7 +33,7 @@ function AboutSummarySection({ locale = "pt" }: LocaleProps) {
             </p>
             <Link
               href={localizedPath("/sobre", locale)}
-              className="mt-6 inline-flex items-center rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-500"
+              className="mt-6 inline-flex min-h-11 items-center rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2"
             >
               {t(locale, "Conhecer a Digital Max →")}
             </Link>
@@ -56,6 +57,7 @@ export default function HomePage({ locale = "pt" }: LocaleProps) {
         <HeroSection locale={locale} />
         <ProblemSection locale={locale} />
         <ServicesSection locale={locale} />
+        <LocalPresenceSection locale={locale} />
         <ProcessSection locale={locale} />
         <PlansSection locale={locale} />
         <AboutSummarySection locale={locale} />

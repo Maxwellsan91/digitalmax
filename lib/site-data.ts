@@ -3,26 +3,10 @@ export type NavItem = {
   href: string;
 };
 
-export type Metric = {
-  title: string;
-  value: string;
-};
-
-export type HeroDashboardStat = {
-  label: string;
-  value: string;
-  change: string;
-  positive?: boolean;
-};
-
-export type HeroGrowthBar = {
-  month: string;
-  value: number;
-};
-
 export type CardItem = {
   title: string;
   description: string;
+  href?: string;
 };
 
 export type FaqItem = {
@@ -51,27 +35,6 @@ export const navItems: NavItem[] = [
   { label: "Planos", href: "/planos" },
   { label: "Sobre", href: "/sobre" },
   { label: "Contacto", href: "/contacto" }
-];
-
-export const heroMetrics: Metric[] = [
-  { title: "Tempo médio de resposta", value: "< 1 dia" },
-  { title: "Clientes satisfeitos", value: "100%" }
-];
-
-export const heroDashboardStats: HeroDashboardStat[] = [
-  { label: "Pedidos de contacto", value: "42", change: "+18%", positive: true },
-  { label: "Visitas ao site", value: "1.284", change: "+23%", positive: true },
-  { label: "Taxa de conversão", value: "4,8%", change: "+0,9pp", positive: true },
-  { label: "Crescimento mensal", value: "Consistente", change: "Em alta", positive: true }
-];
-
-export const heroGrowthBars: HeroGrowthBar[] = [
-  { month: "Jan", value: 34 },
-  { month: "Fev", value: 43 },
-  { month: "Mar", value: 46 },
-  { month: "Abr", value: 58 },
-  { month: "Mai", value: 66 },
-  { month: "Jun", value: 74 }
 ];
 
 export const solutionCards: CardItem[] = [
@@ -128,36 +91,43 @@ export const problemCards: CardItem[] = [
 export const services: CardItem[] = [
   {
     title: "Criação de Websites",
+    href: "/servicos/criacao-de-sites",
     description:
       "Websites modernos, rápidos e profissionais que explicam o seu negócio com clareza e facilitam o pedido de contacto."
   },
   {
     title: "Landing Pages",
+    href: "/servicos/landing-pages",
     description:
       "Páginas focadas numa oferta específica para captar leads e pedidos de orçamento com maior taxa de conversão."
   },
   {
     title: "Gestão de Redes Sociais",
+    href: "/servicos/gestao-redes-sociais",
     description:
       "Conteúdo regular e consistente para manter a sua marca ativa, relevante e próxima dos clientes certos."
   },
   {
     title: "Tráfego Pago",
+    href: "/servicos/trafego-pago",
     description:
       "Campanhas em Meta Ads e Google Ads para chegar a pessoas com interesse real no que vende e gerar oportunidades concretas."
   },
   {
     title: "SEO Local",
+    href: "/servicos/seo-local",
     description:
       "Otimização para o seu negócio aparecer melhor nas pesquisas locais e atrair clientes da sua zona com intenção de compra."
   },
   {
     title: "Google Business Profile",
+    href: "/servicos/seo-local",
     description:
       "Perfil otimizado para reforçar confiança, melhorar a descoberta no Google Maps e aumentar os contactos locais."
   },
   {
     title: "Acompanhamento Mensal",
+    href: "/contacto",
     description:
       "Análise mensal de resultados, ajuste de estratégia e relatórios claros para manter o crescimento com consistência."
   }
@@ -300,4 +270,3 @@ export const faqItems: FaqItem[] = [
       "Pode pedir pelo formulário do site ou por email. A partir da conversa inicial, preparamos uma proposta ajustada aos objetivos do seu negócio."
   }
 ];
-

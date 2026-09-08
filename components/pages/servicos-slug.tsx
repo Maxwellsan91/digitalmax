@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { getServiceBySlug, servicePages } from "@/lib/content-pages";
+import { SITE_URL } from "@/lib/site-config";
 
 type ServicePageProps = {
   params: Promise<{ slug: string }>;
@@ -24,7 +25,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     title: service.title,
     description: service.description,
     alternates: {
-      canonical: `https://www.digitalmax.pt/servicos/${slug}`
+      canonical: `${SITE_URL}/servicos/${slug}`
     }
   };
 }

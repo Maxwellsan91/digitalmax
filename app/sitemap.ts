@@ -1,10 +1,9 @@
 import type { MetadataRoute } from "next";
 import { blogPosts, servicePages } from "@/lib/content-pages";
 import { languageAlternates, localizedPath } from "@/lib/i18n/routing";
+import { SITE_URL } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.digitalmax.pt";
-  const now = new Date();
   const publishedRoutes = [
     { path: "/", changeFrequency: "weekly" as const, priority: 1 },
     { path: "/servicos", changeFrequency: "weekly" as const, priority: 0.9 },
@@ -22,8 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   return publishedRoutes.flatMap((route) => (["pt", "en"] as const).map((locale) => ({
-    url: `${baseUrl}${localizedPath(route.path, locale)}`,
-    lastModified: now,
+    url: `${SITE_URL}${localizedPath(route.path, locale)}`,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
     alternates: { languages: languageAlternates(route.path) }

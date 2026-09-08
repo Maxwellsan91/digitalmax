@@ -1,94 +1,78 @@
 import { t } from "@/lib/i18n";
 import { type LocaleProps } from "@/lib/i18n/routing";
 import { faqItems } from "@/lib/site-data";
+import { SITE_DESCRIPTION, SITE_EMAIL, SITE_NAME, SITE_URL } from "@/lib/site-config";
 
-const siteUrl = "https://www.digitalmax.pt";
+const serviceNames = [
+  "Criação de websites",
+  "Landing pages",
+  "Gestão de redes sociais",
+  "Tráfego pago",
+  "SEO local",
+  "Acompanhamento mensal"
+];
 
 export function StructuredData({ locale = "pt" }: LocaleProps) {
-  const localizedUrl = locale === "en" ? `${siteUrl}/en` : siteUrl;
+  const localizedUrl = locale === "en" ? `${SITE_URL}/en` : SITE_URL;
+  const organizationId = `${SITE_URL}/#organization`;
+  const professionalServiceId = `${SITE_URL}/#professional-service`;
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Organization",
-        "@id": `${siteUrl}/#organization`,
-        name: "Digital Max",
-        url: localizedUrl,
-        email: "geral@digitalmax.pt",
-        telephone: "+351XXXXXXXXX",
+        "@id": organizationId,
+        name: SITE_NAME,
+        url: SITE_URL,
+        email: SITE_EMAIL,
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE_URL}/logo-icon-512.png`,
+          width: 512,
+          height: 512
+        },
         slogan: t(locale, "Criamos presença online que gera clientes."),
-        description:
-          t(locale, "A Digital Max ajuda negócios em Portugal a ganhar visibilidade online, atrair mais contactos e crescer através de websites, redes sociais e campanhas digitais.")
+        description: t(
+          locale,
+          "Agência digital em Portugal especializada em websites, redes sociais, tráfego pago e presença digital para negócios locais."
+        )
       },
       {
         "@type": "WebSite",
-        "@id": `${localizedUrl}/#website`,
-        url: localizedUrl,
-        name: "Digital Max",
-        inLanguage: locale === "en" ? "en" : "pt-PT",
-        publisher: {
-          "@id": `${siteUrl}/#organization`
-        }
+        "@id": `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: SITE_NAME,
+        inLanguage: ["pt-PT", "en"],
+        publisher: { "@id": organizationId }
       },
       {
         "@type": "ProfessionalService",
-        "@id": `${siteUrl}/#professional-service`,
-        name: "Digital Max",
-        url: localizedUrl,
-        areaServed: {
-          "@type": "Country",
-          name: "Portugal"
-        },
-        email: "geral@digitalmax.pt",
-        telephone: "+351XXXXXXXXX",
-        description:
-          t(locale, "Serviços de criação de websites, gestão de redes sociais, tráfego pago, SEO local e presença digital para pequenos e médios negócios em Portugal.")
-      },
-      {
-        "@type": "Service",
-        serviceType: t(locale, "Criação de websites"),
-        provider: { "@id": `${siteUrl}/#organization` },
-        areaServed: "Portugal"
-      },
-      {
-        "@type": "Service",
-        serviceType: "Landing pages",
-        provider: { "@id": `${siteUrl}/#organization` },
-        areaServed: "Portugal"
-      },
-      {
-        "@type": "Service",
-        serviceType: t(locale, "Gestão de redes sociais"),
-        provider: { "@id": `${siteUrl}/#organization` },
-        areaServed: "Portugal"
-      },
-      {
-        "@type": "Service",
-        serviceType: t(locale, "Tráfego pago"),
-        provider: { "@id": `${siteUrl}/#organization` },
-        areaServed: "Portugal"
-      },
-      {
-        "@type": "Service",
-        serviceType: t(locale, "SEO local"),
-        provider: { "@id": `${siteUrl}/#organization` },
-        areaServed: "Portugal"
-      },
-      {
-        "@type": "Service",
-        serviceType: "Google Business Profile",
-        provider: { "@id": `${siteUrl}/#organization` },
-        areaServed: "Portugal"
-      },
-      {
-        "@type": "Service",
-        serviceType: t(locale, "Acompanhamento mensal"),
-        provider: { "@id": `${siteUrl}/#organization` },
-        areaServed: "Portugal"
+        "@id": professionalServiceId,
+        name: SITE_NAME,
+        url: SITE_URL,
+        areaServed: { "@type": "Country", name: "Portugal" },
+        email: SITE_EMAIL,
+        description: t(locale, SITE_DESCRIPTION),
+        parentOrganization: { "@id": organizationId },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: t(locale, "Serviços digitais"),
+          itemListElement: serviceNames.map((serviceType) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              serviceType: t(locale, serviceType),
+              provider: { "@id": professionalServiceId },
+              areaServed: { "@type": "Country", name: "Portugal" }
+            }
+          }))
+        }
       },
       {
         "@type": "FAQPage",
         "@id": `${localizedUrl}/#faq`,
+        url: `${localizedUrl}/#faq`,
+        inLanguage: locale === "en" ? "en" : "pt-PT",
         mainEntity: faqItems.map((item) => ({
           "@type": "Question",
           name: t(locale, item.question),
@@ -102,6 +86,9 @@ export function StructuredData({ locale = "pt" }: LocaleProps) {
   };
 
   return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
+    />
   );
 }

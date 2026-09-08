@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { t } from "./index";
 import { languageAlternates, localizedPath, type Locale } from "./routing";
+import { SITE_URL } from "@/lib/site-config";
 
 function translateMetadataValue(value: unknown, locale: Locale): unknown {
   if (typeof value === "string") return t(locale, value);
@@ -14,9 +15,9 @@ function translateMetadataValue(value: unknown, locale: Locale): unknown {
 export function localizedMetadata(metadata: Metadata, locale: Locale): Metadata {
   const translated = translateMetadataValue(metadata, locale) as Metadata;
   const canonical = metadata.alternates?.canonical;
-  const path = typeof canonical === "string" ? new URL(canonical, "https://www.digitalmax.pt").pathname : "/";
-  const url = `https://www.digitalmax.pt${localizedPath(path, locale)}`;
-  const image = locale === "en" ? "/og-image-en.svg" : "/og-image.svg";
+  const path = typeof canonical === "string" ? new URL(canonical, SITE_URL).pathname : "/";
+  const url = `${SITE_URL}${localizedPath(path, locale)}`;
+  const image = locale === "en" ? "/og-image-en.png" : "/og-image.png";
   const title = typeof translated.title === "string" ? translated.title : undefined;
   return {
     ...translated,

@@ -5,9 +5,12 @@ import type { ProcessStep as ProcessStepItem } from "@/lib/site-data";
 type ProcessStepProps = {
   step: ProcessStepItem;
   isLast: boolean;
+  headingLevel?: "h2" | "h3";
 };
 
-export function ProcessStep({ locale = "pt", step, isLast }: ProcessStepProps & LocaleProps) {
+export function ProcessStep({ locale = "pt", step, isLast, headingLevel = "h3" }: ProcessStepProps & LocaleProps) {
+  const Heading = headingLevel;
+
   return (
     <article className="card-surface relative h-full">
       {!isLast ? (
@@ -19,9 +22,8 @@ export function ProcessStep({ locale = "pt", step, isLast }: ProcessStepProps & 
       <p className="inline-flex rounded-full bg-cyan-50 px-2.5 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-cyan-700">
         {t(locale, step.step)}
       </p>
-      <h3 className="mt-3 text-xl font-semibold text-slate-950">{t(locale, step.title)}</h3>
+      <Heading className="mt-3 text-xl font-semibold text-slate-950">{t(locale, step.title)}</Heading>
       <p className="mt-3 leading-relaxed text-slate-600">{t(locale, step.description)}</p>
     </article>
   );
 }
-

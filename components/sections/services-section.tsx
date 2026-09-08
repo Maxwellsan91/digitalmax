@@ -23,7 +23,8 @@ export function ServicesSection({ locale = "pt" }: LocaleProps) {
             />
             <Link
               href={localizedPath("/servicos", locale)}
-              className="shrink-0 inline-flex items-center rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-500 self-start sm:self-auto"
+              aria-label={t(locale, "Ver todos os serviços")}
+              className="shrink-0 inline-flex min-h-11 items-center rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 self-start sm:self-auto"
             >
               {t(locale, "Ver todos →")}
             </Link>
@@ -32,7 +33,7 @@ export function ServicesSection({ locale = "pt" }: LocaleProps) {
         <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service, index) => (
             <Reveal key={service.title} delayMs={index * 70}>
-              <ServiceCard locale={locale} title={service.title} description={service.description} icon={serviceIcons[index]} />
+              <ServiceCard locale={locale} title={service.title} description={service.description} icon={serviceIcons[index]} href={service.href ?? "/servicos"} />
             </Reveal>
           ))}
         </div>

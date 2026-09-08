@@ -7,13 +7,14 @@ import { TrustSection } from "@/components/sections/trust-section";
 import { FinalCtaSection } from "@/components/sections/final-cta-section";
 import { SectionTitle } from "@/components/ui/section-title";
 import { Reveal } from "@/components/ui/reveal";
+import { SITE_URL } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Sobre",
   description:
     "Conheça a Digital Max, agência digital em Portugal focada em websites, redes sociais, tráfego pago e SEO local para negócios locais.",
   alternates: {
-    canonical: "https://www.digitalmax.pt/sobre"
+    canonical: `${SITE_URL}/sobre`
   }
 };
 
@@ -55,6 +56,7 @@ export default function AboutPage({ locale = "pt" }: LocaleProps) {
                   eyebrow={t(locale, "Sobre")}
                   title={t(locale, "Quem está por trás da Digital Max")}
                   description={t(locale, "A Digital Max ajuda negócios em Portugal a ganhar visibilidade online, atrair mais contactos e crescer através de websites, redes sociais e campanhas digitais.")}
+                  headingLevel="h1"
                 />
                 <p className="mt-6 text-xl font-medium text-slate-950">
                   {t(locale, "Cada negócio é único — e a estratégia também deve ser.")}
@@ -65,7 +67,7 @@ export default function AboutPage({ locale = "pt" }: LocaleProps) {
               </div>
             </Reveal>
             <Reveal delayMs={120}>
-              <TrustSection locale={locale} />
+              <TrustSection locale={locale} headingLevel="h2" />
             </Reveal>
           </div>
         </section>
@@ -97,7 +99,7 @@ export default function AboutPage({ locale = "pt" }: LocaleProps) {
         <section className="section-block border-y border-slate-200/80 bg-white">
           <div className="section-shell max-w-3xl">
             <Reveal>
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-cyan-700">{t(locale, "Missão")}</p>
+              <h2 className="text-xs font-semibold uppercase tracking-[0.12em] text-cyan-700">{t(locale, "Missão")}</h2>
               <blockquote className="mt-4 text-2xl font-medium leading-snug text-slate-950 sm:text-3xl">
                 {t(locale, "\"Tornar a presença digital acessível, estratégica e orientada a resultados para negócios locais em Portugal — independentemente da fase em que se encontram.\"")}
               </blockquote>

@@ -5,13 +5,14 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { servicePages } from "@/lib/content-pages";
+import { SITE_URL } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Serviços",
   description:
     "Conheça os serviços da Digital Max em Portugal: criação de sites, landing pages, gestão de redes sociais, tráfego pago e SEO local.",
   alternates: {
-    canonical: "https://www.digitalmax.pt/servicos"
+    canonical: `${SITE_URL}/servicos`
   }
 };
 
@@ -33,9 +34,9 @@ export default function ServicesPage({ locale = "pt" }: LocaleProps) {
                 <p className="mt-3 text-slate-600">{t(locale, service.description)}</p>
                 <Link
                   href={localizedPath(`/servicos/${service.slug}`, locale)}
-                  className="mt-5 inline-flex items-center rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 transition hover:border-slate-500"
+                  className="mt-5 inline-flex min-h-11 items-center rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 transition hover:border-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2"
                 >
-                  {t(locale, "Ver detalhes do serviço")}
+                  {t(locale, "Ver detalhes do serviço")}<span className="sr-only">: {t(locale, service.title)}</span>
                 </Link>
               </article>
             ))}

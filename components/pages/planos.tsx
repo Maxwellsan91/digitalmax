@@ -4,13 +4,14 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { PlansSection } from "@/components/sections/plans-section";
 import { FinalCtaSection } from "@/components/sections/final-cta-section";
+import { SITE_URL } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Planos",
   description:
     "Conheça os planos da Digital Max: soluções claras para cada fase do negócio, desde a presença inicial ao crescimento com tráfego pago.",
   alternates: {
-    canonical: "https://www.digitalmax.pt/planos"
+    canonical: `${SITE_URL}/planos`
   }
 };
 
@@ -19,7 +20,7 @@ export default function PlansPage({ locale = "pt" }: LocaleProps) {
     <>
       <SiteHeader locale={locale} />
       <main id="main-content">
-        <PlansSection locale={locale} />
+        <PlansSection locale={locale} asPage />
         <FinalCtaSection locale={locale} />
       </main>
 

@@ -6,6 +6,7 @@ import { type LocaleProps, localizedPath } from "@/lib/i18n/routing";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { BrandLogo } from "@/components/brand/brand-logo";
 import { navItems } from "@/lib/site-data";
 import { Button } from "@/components/ui/button";
@@ -15,6 +16,7 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 export function SiteHeader({ locale = "pt" }: LocaleProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 8);
@@ -22,6 +24,19 @@ export function SiteHeader({ locale = "pt" }: LocaleProps) {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") setIsMenuOpen(false);
+    }
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, []);
+
+  function isCurrent(href: string) {
+    const target = localizedPath(href, locale);
+    return target === pathname || (target !== "/" && target !== "/en" && pathname.startsWith(`${target}/`));
+  }
 
   return (
     <header className={`sticky top-0 z-50 transition-all ${isScrolled ? "nav-glass shadow-[0_8px_30px_rgba(15,23,42,0.08)]" : "bg-transparent"}`}>
@@ -34,7 +49,8 @@ export function SiteHeader({ locale = "pt" }: LocaleProps) {
               <Link
                 key={item.href}
                 href={localizedPath(item.href, locale)}
-                className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-950"
+                aria-current={isCurrent(item.href) ? "page" : undefined}
+                className="rounded-md text-sm font-medium text-slate-600 transition-colors hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 aria-[current=page]:text-slate-950"
               >
                 {t(locale, item.label)}
               </Link>
@@ -55,11 +71,12 @@ export function SiteHeader({ locale = "pt" }: LocaleProps) {
             <button
               type="button"
               onClick={() => setIsMenuOpen((prev) => !prev)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-900 shadow-sm"
               aria-label={isMenuOpen ? t(locale, "Fechar menu") : t(locale, "Abrir menu")}
               aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-900 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2"
             >
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMenuOpen ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
             </button>
           </div>
         </div>
@@ -69,7 +86,8 @@ export function SiteHeader({ locale = "pt" }: LocaleProps) {
             <Link
               key={item.href}
               href={localizedPath(item.href, locale)}
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-950"
+              aria-current={isCurrent(item.href) ? "page" : undefined}
+              className="rounded-md text-sm font-medium text-slate-600 transition-colors hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 aria-[current=page]:text-slate-950"
             >
               {t(locale, item.label)}
             </Link>
@@ -80,14 +98,15 @@ export function SiteHeader({ locale = "pt" }: LocaleProps) {
         </div>
 
         {isMenuOpen ? (
-          <div className="mt-4 rounded-2xl border border-slate-200 bg-white/95 p-4 shadow-[0_14px_30px_rgba(15,23,42,0.1)] sm:hidden">
+          <div id="mobile-navigation" className="mt-4 rounded-2xl border border-slate-200 bg-white/95 p-4 shadow-[0_14px_30px_rgba(15,23,42,0.1)] sm:hidden">
             <nav aria-label={t(locale, "Navegação mobile")} className="flex flex-col gap-1">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={localizedPath(item.href, locale)}
                   onClick={() => setIsMenuOpen(false)}
-                  className="rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-950"
+                  aria-current={isCurrent(item.href) ? "page" : undefined}
+                  className="rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 aria-[current=page]:bg-slate-100 aria-[current=page]:text-slate-950"
                 >
                   {t(locale, item.label)}
                 </Link>
