@@ -121,6 +121,12 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
                 >
                   {t(locale, "Enviar novo pedido")}
                 </button>
+                <a
+                  href="mailto:geral@digitalmax.pt"
+                  className="inline-flex items-center rounded-full bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800"
+                >
+                  {t(locale, "Contactar por email")}
+                </a>
               </div>
             </div>
           ) : (
@@ -265,4 +271,3 @@ export function ContactFormSection({ locale = "pt" }: LocaleProps) {
     </section>
   );
 }
-

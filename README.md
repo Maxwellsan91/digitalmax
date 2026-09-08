@@ -70,7 +70,7 @@ components/
   seo/
   ui/
 lib/
-  contact.ts
+  contact-form.ts
   site-data.ts
   i18n/
   metadata.ts
@@ -83,7 +83,7 @@ public/
 
 - **Domínio:** `lib/metadata.ts`, `lib/i18n/routing.ts`, `lib/i18n/metadata.ts`, `app/robots.ts`, `app/sitemap.ts`, `components/seo/structured-data.tsx`
 - **Email:** `components/sections/contact-form-section.tsx`, `components/layout/site-footer.tsx`, `components/seo/structured-data.tsx`
-- **Telefone/WhatsApp:** `lib/contact.ts`, `components/seo/structured-data.tsx`
+- **Telefone nos dados estruturados:** `components/seo/structured-data.tsx`
 
 ## Onde alterar textos e serviços
 
