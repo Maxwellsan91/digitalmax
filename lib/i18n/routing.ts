@@ -57,8 +57,8 @@ export function localizedPath(href: string, locale: Locale): string {
 
 export function languageAlternates(path: string) {
   return {
-    "pt-PT": `https://digitalmax.pt${localizedPath(path, "pt")}`,
-    en: `https://digitalmax.pt${localizedPath(path, "en")}`,
-    "x-default": `https://digitalmax.pt${localizedPath(path, "pt")}`
+    "pt-PT": `https://www.digitalmax.pt${localizedPath(path, "pt")}`,
+    en: `https://www.digitalmax.pt${localizedPath(path, "en")}`,
+    "x-default": `https://www.digitalmax.pt${localizedPath(path, "pt")}`
   };
 }

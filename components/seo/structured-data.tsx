@@ -2,7 +2,7 @@ import { t } from "@/lib/i18n";
 import { type LocaleProps } from "@/lib/i18n/routing";
 import { faqItems } from "@/lib/site-data";
 
-const siteUrl = "https://digitalmax.pt";
+const siteUrl = "https://www.digitalmax.pt";
 
 export function StructuredData({ locale = "pt" }: LocaleProps) {
   const localizedUrl = locale === "en" ? `${siteUrl}/en` : siteUrl;

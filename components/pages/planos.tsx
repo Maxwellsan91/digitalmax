@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "Conheça os planos da Digital Max: soluções claras para cada fase do negócio, desde a presença inicial ao crescimento com tráfego pago.",
   alternates: {
-    canonical: "https://digitalmax.pt/planos"
+    canonical: "https://www.digitalmax.pt/planos"
   }
 };
 
@@ -27,4 +27,3 @@ export default function PlansPage({ locale = "pt" }: LocaleProps) {
     </>
   );
 }
-

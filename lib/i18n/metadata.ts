@@ -14,8 +14,8 @@ function translateMetadataValue(value: unknown, locale: Locale): unknown {
 export function localizedMetadata(metadata: Metadata, locale: Locale): Metadata {
   const translated = translateMetadataValue(metadata, locale) as Metadata;
   const canonical = metadata.alternates?.canonical;
-  const path = typeof canonical === "string" ? new URL(canonical, "https://digitalmax.pt").pathname : "/";
-  const url = `https://digitalmax.pt${localizedPath(path, locale)}`;
+  const path = typeof canonical === "string" ? new URL(canonical, "https://www.digitalmax.pt").pathname : "/";
+  const url = `https://www.digitalmax.pt${localizedPath(path, locale)}`;
   const image = locale === "en" ? "/og-image-en.svg" : "/og-image.svg";
   const title = typeof translated.title === "string" ? translated.title : undefined;
   return {

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Peça um diagnóstico gratuito à Digital Max. Fale connosco para melhorar a presença online do seu negócio em Portugal.",
   alternates: {
-    canonical: "https://digitalmax.pt/contacto"
+    canonical: "https://www.digitalmax.pt/contacto"
   }
 };
 
@@ -25,4 +25,3 @@ export default function ContactPage({ locale = "pt" }: LocaleProps) {
     </>
   );
 }
-

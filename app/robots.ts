@@ -9,8 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/", "/admin/", "/private/"]
       }
     ],
-    sitemap: "https://digitalmax.pt/sitemap.xml",
-    host: "https://digitalmax.pt"
+    sitemap: "https://www.digitalmax.pt/sitemap.xml",
+    host: "https://www.digitalmax.pt"
   };
 }
-

@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
     title: post.seoTitle,
     description: post.seoDescription,
     alternates: {
-      canonical: `https://digitalmax.pt/blog/${slug}`
+      canonical: `https://www.digitalmax.pt/blog/${slug}`
     }
   };
 }
@@ -60,4 +60,3 @@ export default async function BlogDetailPage({ locale = "pt", params }: BlogPage
     </>
   );
 }
-

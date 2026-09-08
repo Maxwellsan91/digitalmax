@@ -3,7 +3,7 @@ import { blogPosts, servicePages } from "@/lib/content-pages";
 import { languageAlternates, localizedPath } from "@/lib/i18n/routing";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://digitalmax.pt";
+  const baseUrl = "https://www.digitalmax.pt";
   const now = new Date();
   const publishedRoutes = [
     { path: "/", changeFrequency: "weekly" as const, priority: 1 },

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "Conheça os serviços da Digital Max em Portugal: criação de sites, landing pages, gestão de redes sociais, tráfego pago e SEO local.",
   alternates: {
-    canonical: "https://digitalmax.pt/servicos"
+    canonical: "https://www.digitalmax.pt/servicos"
   }
 };
 
@@ -47,4 +47,3 @@ export default function ServicesPage({ locale = "pt" }: LocaleProps) {
     </>
   );
 }
-

@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     title: service.title,
     description: service.description,
     alternates: {
-      canonical: `https://digitalmax.pt/servicos/${slug}`
+      canonical: `https://www.digitalmax.pt/servicos/${slug}`
     }
   };
 }
@@ -88,4 +88,3 @@ export default async function ServiceDetailPage({ locale = "pt", params }: Servi
     </>
   );
 }
-

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "Artigos sobre websites, SEO local, redes sociais e tráfego pago para pequenos e médios negócios em Portugal.",
   alternates: {
-    canonical: "https://digitalmax.pt/blog"
+    canonical: "https://www.digitalmax.pt/blog"
   }
 };
 
@@ -47,4 +47,3 @@ export default function BlogPage({ locale = "pt" }: LocaleProps) {
     </>
   );
 }
-

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "Descubra como a Digital Max trabalha: desde o diagnóstico gratuito até ao acompanhamento contínuo, um processo simples e orientado a resultados.",
   alternates: {
-    canonical: "https://digitalmax.pt/como-funciona"
+    canonical: "https://www.digitalmax.pt/como-funciona"
   }
 };
 
@@ -27,4 +27,3 @@ export default function HowItWorksPage({ locale = "pt" }: LocaleProps) {
     </>
   );
 }
-

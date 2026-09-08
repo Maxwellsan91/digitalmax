@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const siteMetadata: Metadata = {
-  metadataBase: new URL("https://digitalmax.pt"),
+  metadataBase: new URL("https://www.digitalmax.pt"),
   applicationName: "Digital Max",
   title: {
     default: "Digital Max | Sites, Redes Sociais e Tráfego Pago em Portugal",
@@ -9,7 +9,7 @@ export const siteMetadata: Metadata = {
   },
   description:
     "A Digital Max ajuda negócios em Portugal a ganhar visibilidade online, atrair mais contactos e crescer através de websites, redes sociais e campanhas digitais.",
-  authors: [{ name: "Digital Max", url: "https://digitalmax.pt" }],
+  authors: [{ name: "Digital Max", url: "https://www.digitalmax.pt" }],
   creator: "Digital Max",
   publisher: "Digital Max",
   keywords: [
@@ -23,7 +23,7 @@ export const siteMetadata: Metadata = {
     "presença digital"
   ],
   alternates: {
-    canonical: "https://digitalmax.pt"
+    canonical: "https://www.digitalmax.pt"
   },
   robots: {
     index: true,
@@ -40,7 +40,7 @@ export const siteMetadata: Metadata = {
     title: "Digital Max | Sites, Redes Sociais e Tráfego Pago em Portugal",
     description:
       "A Digital Max ajuda negócios em Portugal a ganhar visibilidade online, atrair mais contactos e crescer através de websites, redes sociais e campanhas digitais.",
-    url: "https://digitalmax.pt",
+    url: "https://www.digitalmax.pt",
     siteName: "Digital Max",
     locale: "pt_PT",
     type: "website",
@@ -66,4 +66,3 @@ export const siteMetadata: Metadata = {
     apple: "/apple-touch-icon.svg"
   }
 };
-

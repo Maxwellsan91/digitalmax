@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Conheça a Digital Max, agência digital em Portugal focada em websites, redes sociais, tráfego pago e SEO local para negócios locais.",
   alternates: {
-    canonical: "https://digitalmax.pt/sobre"
+    canonical: "https://www.digitalmax.pt/sobre"
   }
 };
 
